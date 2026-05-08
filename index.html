@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BoldHer Foundation Uganda — Empower · Educate · Inspire</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #7B1FA2;
+    --rose: #E8527B;
+    --coral: #F07E6E;
+    --blush: #FDE8EE;
+    --petal: #FAF0F4;
+    --dark: #1A1020;
+    --mid: #4A2050;
+    --text: #2D1535;
+    --muted: #7A5C82;
+    --white: #FFFFFF;
+    --grad: linear-gradient(135deg, #7B1FA2 0%, #E8527B 60%, #F0A070 100%);
+    --grad-soft: linear-gradient(135deg, rgba(123,31,162,0.08) 0%, rgba(232,82,123,0.08) 100%);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(123,31,162,0.1);
+    transition: all 0.3s;
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--mid);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--rose); }
+  .nav-cta {
+    background: var(--grad); color: white !important;
+    padding: 0.55rem 1.4rem; border-radius: 50px;
+    font-size: 0.8rem !important; letter-spacing: 0.06em;
+    transition: opacity 0.2s !important;
+  }
+  .nav-cta:hover { opacity: 0.88; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--dark);
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+    padding: 8rem 4rem 6rem;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 70% 50%, rgba(123,31,162,0.35) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 85% 20%, rgba(232,82,123,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 40% at 20% 80%, rgba(240,126,110,0.15) 0%, transparent 60%);
+  }
+  .hero-dots {
+    position: absolute; top: 15%; right: 20%;
+    width: 300px; height: 300px;
+    background-image: radial-gradient(circle, rgba(232,82,123,0.4) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    opacity: 0.5;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 680px; }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--rose);
+    border: 1px solid rgba(232,82,123,0.4);
+    padding: 0.4rem 1.1rem; border-radius: 50px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.8rem;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+  .hero h1 em {
+    font-style: italic;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    font-size: 1.1rem; font-weight: 300; line-height: 1.8;
+    color: rgba(255,255,255,0.72);
+    max-width: 520px; margin-bottom: 2.8rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.8s 0.45s ease both; }
+  .btn-primary {
+    background: var(--grad); color: white;
+    padding: 0.9rem 2.2rem; border-radius: 50px;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.3); color: white;
+    padding: 0.9rem 2.2rem; border-radius: 50px;
+    font-size: 0.9rem; font-weight: 400; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: rgba(255,255,255,0.4); font-size: 0.7rem; letter-spacing: 0.1em;
+    text-transform: uppercase; animation: bounce 2s infinite;
+  }
+  .hero-scroll::after {
+    content: ''; width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  }
+
+  /* STATS STRIP */
+  .stats-strip {
+    background: var(--grad);
+    padding: 3rem 4rem;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2rem; text-align: center;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 600; color: white;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.8);
+    margin-top: 0.5rem;
+  }
+
+  /* SECTION */
+  section { padding: 7rem 4rem; }
+  .section-tag {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--rose);
+    margin-bottom: 1rem; display: block;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 300; line-height: 1.15; color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--plum); }
+
+  /* ABOUT */
+  .about { background: var(--petal); }
+  .about-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+    align-items: center; max-width: 1200px; margin: 0 auto;
+  }
+  .about-text p {
+    font-size: 1rem; line-height: 1.9; color: var(--muted);
+    margin-bottom: 1.4rem;
+  }
+  .about-visual {
+    position: relative; height: 480px;
+  }
+  .about-card-main {
+    position: absolute; inset: 0;
+    background: var(--grad);
+    border-radius: 2px 80px 2px 80px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .about-card-main::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.15)'/%3E%3C/svg%3E");
+  }
+  .about-icon-wrap {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  }
+  .about-icon-wrap svg { width: 80px; height: 80px; }
+  .about-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-style: italic;
+    color: white; text-align: center;
+  }
+  .about-badge {
+    position: absolute; bottom: -1.5rem; right: -1.5rem;
+    background: white; border-radius: 16px;
+    padding: 1.2rem 1.8rem;
+    box-shadow: 0 20px 60px rgba(123,31,162,0.2);
+    text-align: center;
+  }
+  .about-badge strong {
+    display: block; font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 600; color: var(--plum);
+  }
+  .about-badge span {
+    font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em;
+  }
+
+  /* PILLARS */
+  .pillars { background: white; }
+  .pillars-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; margin-top: 4rem; max-width: 1200px; margin-left: auto; margin-right: auto;
+  }
+  .pillar-card {
+    padding: 2.5rem; border-radius: 4px 32px 4px 32px;
+    position: relative; overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .pillar-card:hover { transform: translateY(-6px); }
+  .pillar-card:nth-child(1) { background: var(--blush); }
+  .pillar-card:nth-child(2) { background: linear-gradient(135deg, #f3e8ff 0%, #ede0ff 100%); }
+  .pillar-card:nth-child(3) { background: linear-gradient(135deg, #fff0e8 0%, #ffe4d6 100%); }
+  .pillar-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem; font-weight: 300;
+    color: rgba(123,31,162,0.1);
+    position: absolute; top: 0.5rem; right: 1.5rem;
+    line-height: 1;
+  }
+  .pillar-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: var(--grad);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  .pillar-icon svg { width: 24px; height: 24px; fill: white; }
+  .pillar-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 600; color: var(--text);
+    margin-bottom: 0.8rem;
+  }
+  .pillar-card p { font-size: 0.92rem; line-height: 1.8; color: var(--muted); }
+
+  /* PROGRAMS */
+  .programs { background: var(--dark); }
+  .programs .section-title { color: white; }
+  .programs .section-title em { color: var(--rose); }
+  .programs > p { color: rgba(255,255,255,0.6); max-width: 560px; margin-bottom: 4rem; font-size: 1rem; line-height: 1.8; }
+  .programs-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; max-width: 1200px; margin: 0 auto;
+  }
+  .program-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 2.5rem;
+    transition: background 0.3s, transform 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .program-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--grad);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .program-card:hover::before { transform: scaleX(1); }
+  .program-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
+  .program-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 600; color: white;
+    margin-bottom: 0.8rem;
+  }
+  .program-card p { font-size: 0.9rem; line-height: 1.8; color: rgba(255,255,255,0.55); }
+  .program-tag {
+    display: inline-block; font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.3rem 0.9rem; border-radius: 50px;
+    background: rgba(232,82,123,0.2); color: var(--rose);
+    margin-bottom: 1.2rem;
+  }
+
+  /* STORY / VISION */
+  .vision {
+    background: var(--petal);
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding: 0; min-height: 600px;
+  }
+  .vision-text {
+    padding: 7rem 5rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .vision-image {
+    background: var(--grad);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .vision-image::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 L80 80 M-20 20 L60 100 M20 -20 L100 60' stroke='rgba(255,255,255,0.08)' stroke-width='1'/%3E%3C/svg%3E");
+  }
+  .vision-quote {
+    position: relative; z-index: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-style: italic;
+    color: white; text-align: center;
+    padding: 3rem; line-height: 1.5;
+  }
+  .vision-quote cite {
+    display: block; font-style: normal;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: rgba(255,255,255,0.65);
+    margin-top: 1.5rem;
+  }
+  .vision-text p { font-size: 1rem; line-height: 1.9; color: var(--muted); margin-bottom: 1.4rem; }
+  .values-list { list-style: none; margin-top: 1rem; }
+  .values-list li {
+    display: flex; align-items: center; gap: 0.8rem;
+    font-size: 0.95rem; color: var(--text); padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(123,31,162,0.1);
+  }
+  .values-list li::before {
+    content: ''; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--grad); flex-shrink: 0;
+  }
+
+  /* MEDIA / SOCIAL */
+  .media { background: white; }
+  .media-inner { max-width: 1200px; margin: 0 auto; }
+  .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 4rem; }
+  .media-card {
+    border-radius: 20px; overflow: hidden;
+    border: 1px solid rgba(123,31,162,0.12);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .media-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(123,31,162,0.12); }
+  .media-thumb {
+    background: var(--grad);
+    aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .media-thumb::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.25);
+  }
+  .play-btn {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: white; display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1; cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .play-btn:hover { transform: scale(1.1); }
+  .play-btn svg { width: 24px; height: 24px; margin-left: 3px; }
+  .media-info { padding: 1.5rem; }
+  .media-platform {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--rose); margin-bottom: 0.5rem;
+  }
+  .media-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600; color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+  .media-info p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .media-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-top: 0.8rem; font-size: 0.85rem; font-weight: 500;
+    color: var(--plum); text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .media-link:hover { gap: 0.6rem; }
+
+  /* CONTACT */
+  .contact { background: var(--dark); padding: 7rem 4rem; }
+  .contact-inner {
+    max-width: 900px; margin: 0 auto; text-align: center;
+  }
+  .contact .section-title { color: white; }
+  .contact p { color: rgba(255,255,255,0.6); font-size: 1.05rem; line-height: 1.8; margin-bottom: 3.5rem; }
+  .contact-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-bottom: 4rem;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 2rem;
+    transition: background 0.3s;
+  }
+  .contact-card:hover { background: rgba(255,255,255,0.1); }
+  .contact-card-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(232,82,123,0.2);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  .contact-card-icon svg { width: 22px; height: 22px; fill: var(--rose); }
+  .contact-card h4 {
+    font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-bottom: 0.5rem;
+  }
+  .contact-card p { font-size: 0.95rem; color: white; word-break: break-all; }
+  .contact-card a { color: var(--rose); text-decoration: none; }
+  .contact-form {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px; padding: 3rem;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-group label { font-size: 0.8rem; font-weight: 500; color: rgba(255,255,255,0.6); text-align: left; }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px; padding: 0.85rem 1.1rem;
+    color: white; font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    outline: none; transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--rose); }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-group select option { background: #2D1535; }
+  .form-full { margin-bottom: 1rem; }
+  .form-submit {
+    width: 100%; padding: 1rem;
+    background: var(--grad); color: white;
+    border: none; border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 500;
+    cursor: pointer; transition: opacity 0.2s;
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover { opacity: 0.88; }
+
+  /* FOOTER */
+  footer {
+    background: #0E0815;
+    padding: 5rem 4rem 3rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem; margin-bottom: 4rem;
+  }
+  .footer-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 600;
+    background: var(--grad);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    margin-bottom: 1rem;
+  }
+  .footer-tagline {
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35); margin-bottom: 1.2rem;
+  }
+  .footer-desc { font-size: 0.88rem; line-height: 1.8; color: rgba(255,255,255,0.45); }
+  .footer-social { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
+  .social-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s, background 0.2s; text-decoration: none;
+  }
+  .social-icon:hover { border-color: var(--rose); background: rgba(232,82,123,0.15); }
+  .social-icon svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.6); }
+  .footer-col h5 {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+    margin-bottom: 1.2rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.7rem; }
+  .footer-col ul li a {
+    font-size: 0.88rem; color: rgba(255,255,255,0.45);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--rose); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+  .footer-bottom a { color: var(--rose); text-decoration: none; }
+  .footer-love {
+    font-size: 0.8rem; color: rgba(255,255,255,0.3);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+  }
+
+  /* SPARKLES decoration */
+  .sparkles {
+    position: absolute; right: 5%; top: 20%;
+    display: flex; flex-direction: column; gap: 1.5rem;
+    animation: fadeUp 1s 0.6s ease both;
+  }
+  .spark {
+    width: 10px; height: 10px;
+    background: var(--rose);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+  .spark:nth-child(2) { background: #B07FD4; width: 14px; height: 14px; margin-left: 40px; }
+  .spark:nth-child(3) { background: var(--coral); width: 8px; height: 8px; margin-left: 20px; }
+  .spark:nth-child(4) { background: #F0C060; width: 12px; height: 12px; margin-left: 60px; }
+
+  /* Responsive basics */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 2rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 2rem; }
+    .hero { padding: 7rem 2rem 5rem; }
+    .about-inner { grid-template-columns: 1fr; }
+    .about-visual { height: 300px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .programs-grid { grid-template-columns: 1fr; }
+    .vision { grid-template-columns: 1fr; }
+    .vision-text { padding: 4rem 2rem; }
+    .media-grid { grid-template-columns: 1fr; }
+    .contact-cards { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 3rem 2rem; }
+    .sparkles { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">BoldHer Foundation</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#pillars">Our Work</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#contact" class="nav-cta">Get Involved</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+  <div class="sparkles">
+    <div class="spark"></div>
+    <div class="spark"></div>
+    <div class="spark"></div>
+    <div class="spark"></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-tag">BoldHer Foundation Uganda</span>
+    <h1>She is <em>bold,<br>she is</em> unstoppable.</h1>
+    <p>Transforming lives across Uganda through education, economic empowerment, and community inspiration — one woman, one girl at a time.</p>
+    <div class="hero-actions">
+      <a href="#about" class="btn-primary">Discover Our Mission</a>
+      <a href="#contact" class="btn-outline">Support Our Cause</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div>
+    <div class="stat-num">500+</div>
+    <div class="stat-label">Women Empowered</div>
+  </div>
+  <div>
+    <div class="stat-num">3</div>
+    <div class="stat-label">Core Pillars</div>
+  </div>
+  <div>
+    <div class="stat-num">Uganda</div>
+    <div class="stat-label">Communities Served</div>
+  </div>
+  <div>
+    <div class="stat-num">∞</div>
+    <div class="stat-label">Dreams Ignited</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <span class="section-tag">Our Story</span>
+      <h2 class="section-title">A movement born from <em>purpose</em></h2>
+      <p>BoldHer Foundation Uganda is a non-profit organisation dedicated to the advancement of women and girls across Uganda. We believe every woman deserves the tools, knowledge and confidence to shape her own destiny.</p>
+      <p>Founded on the conviction that empowered women build stronger families and communities, we work at the intersection of education, economic independence and personal development creating ripples of lasting change.</p>
+      <p>We are more than a foundation. We are a movement. A sisterhood. A promise that no woman stands alone on her journey to greatness.</p>
+      <a href="#pillars" class="btn-primary" style="margin-top:1rem;">What We Do</a>
+    </div>
+    <div class="about-visual">
+      <div class="about-card-main">
+        <div class="about-icon-wrap">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="26" r="14" fill="rgba(255,255,255,0.3)"/>
+            <path d="M16 68c0-13.255 10.745-24 24-24s24 10.745 24 24" stroke="rgba(255,255,255,0.6)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M55 20l4 4-4 4M25 20l-4 4 4 4" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="about-tagline">Empower · Educate · Inspire</div>
+        </div>
+      </div>
+      <div class="about-badge">
+        <strong>Uganda</strong>
+        <span>East Africa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars" id="pillars">
+  <div style="max-width:1200px; margin: 0 auto;">
+    <span class="section-tag">Three Pillars</span>
+    <h2 class="section-title">Everything we do is built<br>on <em>these foundations</em></h2>
+  </div>
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-num">01</div>
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/></svg>
+      </div>
+      <h3>Empower</h3>
+      <p>We equip women and girls with the skills, resources and self-belief to take charge of their lives. Through mentorship, leadership training and entrepreneurship support, we create confident change makers who lead their communities.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">02</div>
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+      </div>
+      <h3>Educate</h3>
+      <p>Education is the most powerful weapon for change. We provide access to quality learning, vocational training, digital literacy and scholarships breaking barriers that have historically kept women and girls from reaching their full potential.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">03</div>
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+      </div>
+      <h3>Inspire</h3>
+      <p>Every woman who rises lifts others. We celebrate stories of resilience, create platforms for women's voices to be heard and build a community of hope inspiring the next generation to dream bigger and reach further.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div style="max-width:1200px; margin: 0 auto;">
+    <span class="section-tag">Our Programs</span>
+    <h2 class="section-title">Initiatives driving <em>real change</em></h2>
+    <p style="color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.8; max-width: 560px; margin-bottom: 4rem;">
+      Our programs are designed with women and girls at the centre — meeting them 
+      where they are, and walking with them toward where they want to be.
+    </p>
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="program-tag">Leadership</div>
+        <h3>BoldHer Leadership Academy</h3>
+        <p>An intensive mentorship and leadership program developing the next generation of bold female leaders in Uganda from grassroots community advocates to business entrepreneurs.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-tag">Education</div>
+        <h3>Girls Back to School Initiative</h3>
+        <p>Providing scholarships, school supplies and support systems to keep vulnerable girls in school and equip them with the education they deserve, regardless of circumstance.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-tag">Economic</div>
+        <h3>Women Entrepreneurship Hub</h3>
+        <p>Supporting women-owned small businesses through training, seed funding, market linkages and mentorship building economic independence from the ground up.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-tag">Wellness</div>
+        <h3>Mental Health & Wellness Circles</h3>
+        <p>Safe spaces for women and girls to talk, heal and grow together. Community-based mental health support, counselling access and wellness workshops across Uganda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<div class="vision" id="vision">
+  <div class="vision-text">
+    <span class="section-tag">Our Vision & Values</span>
+    <h2 class="section-title">A Uganda where every woman <em>thrives</em></h2>
+    <p>We envision a Uganda where no woman is held back by circumstance, culture, or lack of opportunity where every girl grows up knowing her potential is limitless.</p>
+    <p>Our work is guided by unwavering values that shape every programme, every partnership and every interaction we have.</p>
+    <ul class="values-list">
+      <li>Dignity — every woman deserves respect and recognition</li>
+      <li>Boldness — we champion courage over fear</li>
+      <li>Community — we are stronger together than apart</li>
+      <li>Inclusivity — no woman is left behind</li>
+      <li>Integrity — transparent, accountable, and purpose-driven</li>
+    </ul>
+  </div>
+  <div class="vision-image">
+    <blockquote class="vision-quote">
+      "A woman with a voice is, by definition, a strong woman."
+      <cite>— BoldHer Foundation Uganda</cite>
+    </blockquote>
+  </div>
+</div>
+
+<!-- MEDIA -->
+<section class="media" id="media">
+  <div class="media-inner">
+    <span class="section-tag">Media & Content</span>
+    <h2 class="section-title">Watch our <em>stories unfold</em></h2>
+    <div class="media-grid">
+      <div class="media-card">
+        <div class="media-thumb">
+          <div class="play-btn" onclick="window.open('https://vt.tiktok.com/ZS9sgS1t8/', '_blank')">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 5v14l11-7L8 5z" fill="#7B1FA2"/>
+            </svg>
+          </div>
+        </div>
+        <div class="media-info">
+          <div class="media-platform">TikTok</div>
+          <h3>BoldHer Foundation on TikTok</h3>
+          <p>Follow our journey, meet the women we serve and see the transformation happening across Uganda one story at a time.</p>
+          <a href="https://vt.tiktok.com/ZS9sgS1t8/" target="_blank" class="media-link">
+            Watch on TikTok →
+          </a>
+        </div>
+      </div>
+      <div class="media-card">
+        <div class="media-thumb">
+          <div class="play-btn" onclick="window.open('https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9', '_blank')">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 5v14l11-7L8 5z" fill="#E8527B"/>
+            </svg>
+          </div>
+        </div>
+        <div class="media-info">
+          <div class="media-platform">YouTube</div>
+          <h3>BoldHer Foundation on YouTube</h3>
+          <p>Inspiring short films, community highlights and impact stories from the women and girls whose lives are being transformed every day.</p>
+          <a href="https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9" target="_blank" class="media-link">
+            Watch on YouTube →
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Call to follow -->
+    <div style="text-align:center; margin-top: 4rem; padding: 3rem; background: var(--petal); border-radius: 20px;">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:var(--text); margin-bottom:0.8rem;">
+        Join our growing community
+      </h3>
+      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:2rem; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.8;">
+        Follow, like, share and comment your support amplifies our mission and reaches more women and girls across Uganda.
+      </p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="https://vt.tiktok.com/ZS9sgS1t8/" target="_blank" class="btn-primary">Follow on TikTok</a>
+        <a href="https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9" target="_blank" class="btn-outline" style="color:var(--plum); border-color:var(--plum);">Subscribe on YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SUPPORT US -->
+<section style="background: var(--petal); padding: 7rem 4rem;">
+  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+    <span class="section-tag">Support Our Cause</span>
+    <h2 class="section-title">Your generosity <em>changes lives</em></h2>
+    <p style="color: var(--muted); font-size: 1rem; line-height: 1.8; max-width: 580px; margin: 0 auto 4rem;">
+      Every contribution — big or small — helps us empower more women and girls across Uganda. 
+      Choose the method that works best for you.
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+
+      <!-- Mobile Money Card -->
+      <div style="background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(123,31,162,0.12); text-align: left;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--grad); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-5 18a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5-5H7V4h10v11z"/>
+            </svg>
+          </div>
+          <div>
+            <p style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.2rem;">Mobile Money</p>
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--text);">MTN / Airtel</h3>
+          </div>
+        </div>
+
+        <div style="background: var(--petal); border-radius: 12px; padding: 1.2rem 1.5rem; margin-bottom: 1rem;">
+          <p style="font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">Airtel Money</p>
+          <p style="font-size: 1.4rem; font-weight: 500; color: var(--plum); font-family: 'Cormorant Garamond', serif; letter-spacing: 0.05em;">+256 742 253 436</p>
+          <p style="font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem;">Account Name: BoldHer Foundation Uganda</p>
+        </div>
+
+        <!-- Add a second mobile money line below if you have Airtel too -->
+        <!-- 
+        <div style="background: var(--petal); border-radius: 12px; padding: 1.2rem 1.5rem;">
+          <p style="font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">Airtel Money</p>
+          <p style="font-size: 1.4rem; font-weight: 500; color: var(--plum); font-family: 'Cormorant Garamond', serif;">+256 7XX XXX XXX</p>
+          <p style="font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem;">Account Name: BoldHer Foundation Uganda</p>
+        </div>
+        -->
+
+        <p style="font-size: 0.82rem; color: var(--muted); margin-top: 1.2rem; line-height: 1.7;">
+          Send via MTN MoMo or Airtel Money and use <strong style="color: var(--text);">"BoldHer Donation"</strong> as your reference.
+        </p>
+      </div>
+
+      <!-- Bank Account Card -->
+      <div style="background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(123,31,162,0.12); text-align: left;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--grad); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zm-8 9h19v3H2v-3zm14-9v7h3v-7h-3zM11.5 1L2 6v2h19V6l-9.5-5z"/>
+            </svg>
+          </div>
+          <div>
+            <p style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.2rem;">Bank Transfer</p>
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--text);">Bank Account</h3>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.7rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0; border-bottom: 1px solid rgba(123,31,162,0.08);">
+            <span style="font-size: 0.8rem; color: var(--muted);">Bank Name</span>
+            <span style="font-size: 0.9rem; font-weight: 500; color: var(--text);">STANBIC BANK</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0; border-bottom: 1px solid rgba(123,31,162,0.08);">
+            <span style="font-size: 0.8rem; color: var(--muted);">Account Name</span>
+            <span style="font-size: 0.9rem; font-weight: 500; color: var(--text);">BoldHer Foundation Uganda</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0; border-bottom: 1px solid rgba(123,31,162,0.08);">
+            <span style="font-size: 0.8rem; color: var(--muted);">Account Number</span>
+            <span style="font-size: 0.9rem; font-weight: 500; color: var(--plum);">XXXX XXXX XXXX</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0;">
+            <span style="font-size: 0.8rem; color: var(--muted);">Branch</span>
+            <span style="font-size: 0.9rem; font-weight: 500; color: var(--text);">Jinja, Uganda</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Thank you note -->
+    <div style="margin-top: 3rem; padding: 2rem; background: var(--grad); border-radius: 16px; color: white;">
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; margin-bottom: 0.5rem;">
+        "Every shilling you give writes a new chapter in a woman's story."
+      </p>
+      <p style="font-size: 0.82rem; opacity: 0.8; letter-spacing: 0.1em; text-transform: uppercase;">
+        May God bless you for your generosity
+      </p>
+    </div>
+
+  </div>
+</section>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <span class="section-tag">Get In Touch</span>
+    <h2 class="section-title">Be part of the <em>movement</em></h2>
+    <p>Whether you want to volunteer, partner, donate, or simply learn more we welcome you. Every act of support, no matter how small, changes a life.</p>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <h4>Email Us</h4>
+        <p><a href="mailto:boldherfoundationuganda@gmail.com">boldherfoundationuganda@gmail.com</a></p>
+      </div>
+      <div class="contact-cards">
+
+  <!-- Phone Card -->
+  <div class="contact-card">
+    <div class="contact-card-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.47 11.47 0 0 0 3.58.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+    </div>
+    <h4>Call Us</h4>
+    <p><a href="tel:+256742253436">+256 742 253 436</a></p>
+  </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <h4>Location</h4>
+        <p style="word-break:normal;">Jinja, Uganda<br>East Africa</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3z"/></svg>
+        </div>
+        <h4>Our Cause</h4>
+        <p style="word-break:normal;">Empowering women & girls across Uganda</p>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:white; margin-bottom:2rem;">Send us a message</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+      </div>
+      <div class="form-group form-full">
+        <label>How would you like to help?</label>
+        <select>
+          <option value="" disabled selected>Select an option</option>
+          <option>Volunteer</option>
+          <option>Donate / Fundraise</option>
+          <option>Partnership / Collaboration</option>
+          <option>Media / Press Inquiry</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="form-group form-full">
+        <label>Your Message</label>
+        <textarea placeholder="Tell us about yourself and how you'd like to be involved..."></textarea>
+      </div>
+      <button class="form-submit">Send Message Let's Build Together</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">BoldHer Foundation Uganda</div>
+      <div class="footer-tagline">Empower · Educate · Inspire</div>
+      <p class="footer-desc">A non-profit organisation dedicated to the empowerment, education and inspiration of women and girls across Uganda and East Africa.</p>
+      <div class="footer-social">
+        <a href="https://vt.tiktok.com/ZS9sgS1t8/" target="_blank" class="social-icon" title="TikTok">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.83 1.56V6.79a4.85 4.85 0 0 1-1.06-.1z"/></svg>
+        </a>
+        <a href="https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9" target="_blank" class="social-icon" title="YouTube">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg>
+        </a>
+        <a href="mailto:boldherfoundationuganda@gmail.com" class="social-icon" title="Email">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Our Work</h5>
+      <ul>
+        <li><a href="#pillars">Empower</a></li>
+        <li><a href="#pillars">Educate</a></li>
+        <li><a href="#pillars">Inspire</a></li>
+        <li><a href="#programs">Programs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Foundation</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#vision">Our Vision</a></li>
+        <li><a href="#media">Media</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Get Involved</h5>
+      <ul>
+        <li><a href="#contact">Volunteer</a></li>
+        <li><a href="#contact">Donate</a></li>
+        <li><a href="#contact">Partner With Us</a></li>
+        <li><a href="#contact">Spread the Word</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 BoldHer Foundation Uganda. All rights reserved. | <a href="mailto:boldherfoundationuganda@gmail.com">boldherfoundationuganda@gmail.com</a></p>
+    <p class="footer-love">Made with purpose for every bold woman in Uganda.</p>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.boxShadow = '0 4px 30px rgba(123,31,162,0.12)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+
+  // Animate elements on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.style.opacity = '1';
+        el.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pillar-card, .program-card, .media-card, .contact-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  // Form submit
+  document.querySelector('.form-submit').addEventListener('click', function() {
+    const name = document.querySelector('input[type="text"]').value;
+    if (name) {
+      this.textContent = '✓ Message Sent — Thank you, ' + name + '!';
+      this.style.background = 'linear-gradient(135deg, #2D7A3A, #4CAF50)';
+      this.disabled = true;
+    } else {
+      this.textContent = 'Please fill in your name first';
+      setTimeout(() => { this.textContent = 'Send Message — Let\'s Build Together'; }, 2000);
+    }
+  });
+</script>
+</body>
+</html>
