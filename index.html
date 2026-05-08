@@ -398,6 +398,66 @@
   }
   .media-link:hover { gap: 0.6rem; }
 
+  /* GALLERY */
+  .gallery { background: white; }
+  .gallery-inner { max-width: 1200px; margin: 0 auto; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 1;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 8px 30px rgba(123,31,162,0.1);
+  }
+  .gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 50px rgba(123,31,162,0.15);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.08);
+  }
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(123,31,162,0.7) 0%, rgba(232,82,123,0.7) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    padding: 2rem;
+    text-align: center;
+  }
+  .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+  }
+  .gallery-overlay h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  .gallery-overlay p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.6;
+  }
+
   /* CONTACT */
   .contact { background: var(--dark); padding: 7rem 4rem; }
   .contact-inner {
@@ -563,6 +623,7 @@
     .vision-text { padding: 4rem 3rem; }
     .vision-image { min-height: 350px; }
     .media-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-cards { grid-template-columns: repeat(2, 1fr); }
     .form-row { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 3rem; }
@@ -619,6 +680,10 @@
     .media-info h3 { font-size: 1.1rem; }
     .media-info p { font-size: 0.8rem; }
     
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .gallery-overlay h3 { font-size: 1.2rem; }
+    .gallery-overlay p { font-size: 0.8rem; }
+    
     .contact { padding: 3.5rem 1.5rem; }
     .contact-cards { grid-template-columns: 1fr; gap: 1rem; }
     .contact-card { padding: 1.5rem; }
@@ -670,6 +735,9 @@
     .program-card { padding: 1.5rem; }
     .program-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
     
+    .gallery-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .gallery-item { aspect-ratio: 4/3; }
+    
     .contact-cards { gap: 0.8rem; }
     .contact-card { padding: 1.2rem; }
     .contact-card h4 { font-size: 0.75rem; }
@@ -697,6 +765,7 @@
     <li><a href="#pillars">Our Work</a></li>
     <li><a href="#programs">Programs</a></li>
     <li><a href="#media">Media</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact" class="nav-cta">Get Involved</a></li>
   </ul>
 </nav>
@@ -750,7 +819,7 @@
       <span class="section-tag">Our Story</span>
       <h2 class="section-title">A movement born from <em>purpose</em></h2>
       <p>BoldHer Foundation Uganda is a non-profit organisation dedicated to the advancement of women and girls across Uganda. We believe every woman deserves the tools, knowledge, and confidence to shape her own destiny.</p>
-      <p>Founded on the conviction that empowered women build stronger families and communities, we work at the intersection of education, economic independence, and personal development — creating ripples of positive change.</p>
+      <p>Founded on the conviction that empowered women build stronger families and communities, we work at the intersection of education, economic independence, and personal development — creating pathways to transformation that last a lifetime.</p>
       <p>We are more than a foundation. We are a movement. A sisterhood. A promise that no woman stands alone on her journey to greatness.</p>
       <a href="#pillars" class="btn-primary" style="margin-top:1rem;">What We Do</a>
     </div>
@@ -786,7 +855,7 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/></svg>
       </div>
       <h3>Empower</h3>
-      <p>We equip women and girls with the skills, resources, and self-belief to take charge of their lives. Through mentorship, leadership training, and entrepreneurship support, we create confident changemakers.</p>
+      <p>We equip women and girls with the skills, resources, and self-belief to take charge of their lives. Through mentorship, leadership training, and entrepreneurship support, we create confident leaders ready to inspire change.</p>
     </div>
     <div class="pillar-card">
       <div class="pillar-num">02</div>
@@ -794,15 +863,15 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
       </div>
       <h3>Educate</h3>
-      <p>Education is the most powerful weapon for change. We provide access to quality learning, vocational training, digital literacy, and scholarships — breaking barriers that have historically kept women back.</p>
+      <p>Education is the most powerful weapon for change. We provide access to quality learning, vocational training, digital literacy, and scholarships — breaking barriers that have historically kept girls out of school.</p>
     </div>
     <div class="pillar-card">
       <div class="pillar-num">03</div>
       <div class="pillar-icon">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.7-2.87 4.93-.4L12 6l1.88 4.24 4.93.4-3.7 2.87 1.12 4.81z"/></svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.7 2.82 4.7.62L11.99 9.5l1.71 4.15 4.7-.62-3.7-2.82 1.12 4.81z"/></svg>
       </div>
       <h3>Inspire</h3>
-      <p>Every woman who rises lifts others. We celebrate stories of resilience, create platforms for women's voices to be heard, and build a community of hope — inspiring the next generation to dream big.</p>
+      <p>Every woman who rises lifts others. We celebrate stories of resilience, create platforms for women's voices to be heard, and build a community of hope — inspiring the next generation to dream bigger.</p>
     </div>
   </div>
 </section>
@@ -918,6 +987,69 @@
   </div>
 </section>
 
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-inner">
+    <span class="section-tag">Impact Gallery</span>
+    <h2 class="section-title">Stories of <em>transformation</em></h2>
+    <div class="gallery-grid">
+      <!-- Gallery Item 1 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=400&fit=crop" alt="Women in Leadership Training">
+        <div class="gallery-overlay">
+          <h3>Leadership Training</h3>
+          <p>Building confident female leaders</p>
+        </div>
+      </div>
+
+      <!-- Gallery Item 2 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" alt="Girls Education Program">
+        <div class="gallery-overlay">
+          <h3>Girls Education</h3>
+          <p>Keeping girls in school and thriving</p>
+        </div>
+      </div>
+
+      <!-- Gallery Item 3 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop" alt="Women Entrepreneurs">
+        <div class="gallery-overlay">
+          <h3>Entrepreneurship Hub</h3>
+          <p>Supporting women business owners</p>
+        </div>
+      </div>
+
+      <!-- Gallery Item 4 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1516534775068-bb47e46715ae?w=400&h=400&fit=crop" alt="Community Wellness">
+        <div class="gallery-overlay">
+          <h3>Wellness & Support</h3>
+          <p>Creating safe spaces for healing</p>
+        </div>
+      </div>
+
+      <!-- Gallery Item 5 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Mentorship Programs">
+        <div class="gallery-overlay">
+          <h3>Mentorship</h3>
+          <p>Guiding the next generation</p>
+        </div>
+      </div>
+
+      <!-- Gallery Item 6 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1469922586521-8ce3c221164c?w=400&h=400&fit=crop" alt="Community Impact">
+        <div class="gallery-overlay">
+          <h3>Community Impact</h3>
+          <p>Empowering whole communities</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SUPPORT US -->
 <section style="background: var(--petal); padding: 7rem 4rem;">
   <div style="max-width: 900px; margin: 0 auto; text-align: center;">
@@ -1000,7 +1132,6 @@
         May God bless you for your generosity
       </p>
     </div>
-
   </div>
 </section>
 
@@ -1008,59 +1139,68 @@
 <section class="contact" id="contact">
   <div class="contact-inner">
     <span class="section-tag">Get In Touch</span>
-    <h2 class="section-title">Be part of the <em>movement</em></h2>
-    <p>Whether you want to volunteer, partner, donate, or simply learn more — we welcome you. Every act of support, no matter how small, changes a life.</p>
+    <h2 class="section-title">We'd love to hear <em>from you</em></h2>
+    <p>Whether you want to partner with us, donate, volunteer, or share your story — reach out. Every message brings us closer to our mission.</p>
+    
     <div class="contact-cards">
       <div class="contact-card">
         <div class="contact-card-icon">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </div>
-        <h4>Email Us</h4>
-        <p><a href="mailto:boldherfoundationuganda@gmail.com">boldherfoundationuganda@gmail.com</a></p>
+        <h4>Email</h4>
+        <p><a href="mailto:info@boldher.ug">info@boldher.ug</a></p>
       </div>
       <div class="contact-card">
         <div class="contact-card-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.47 11.47 0 0 0 3.58.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17.9 17.9 0 0 1 2 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.47 11.47 0 0 0 .57 3.58 1 1 0 0 1-.24 1.01l-2.2 2.2z"/></svg>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
         </div>
-        <h4>Call Us</h4>
+        <h4>Phone</h4>
         <p><a href="tel:+256742253436">+256 742 253 436</a></p>
       </div>
       <div class="contact-card">
         <div class="contact-card-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
         </div>
         <h4>Location</h4>
-        <p style="word-break:normal;">Jinja, Uganda<br>East Africa</p>
+        <p>Jinja, Uganda</p>
       </div>
     </div>
+
     <div class="contact-form">
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:white; margin-bottom:2rem;">Send us a message</h3>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="Full name">
+      <h3 style="color: white; margin-bottom: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300;">Send us a Message</h3>
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="your@email.com">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+256 XXX XXX XXX">
+          </div>
+          <div class="form-group">
+            <label for="interest">Area of Interest *</label>
+            <select id="interest" name="interest" required>
+              <option value="">Select an option</option>
+              <option value="donate">Make a Donation</option>
+              <option value="volunteer">Volunteer With Us</option>
+              <option value="partner">Partnership Inquiry</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="form-group form-full">
-        <label>How would you like to help?</label>
-        <select>
-          <option value="" disabled selected>Select an option</option>
-          <option>Volunteer</option>
-          <option>Donate / Fundraise</option>
-          <option>Partnership / Collaboration</option>
-          <option>Media / Press Inquiry</option>
-          <option>General Inquiry</option>
-        </select>
-      </div>
-      <div class="form-group form-full">
-        <label>Your Message</label>
-        <textarea placeholder="Tell us about yourself and how you'd like to be involved..."></textarea>
-      </div>
-      <button class="form-submit">Send Message — Let's Build Together</button>
+        <div class="form-group form-full">
+          <label for="message">Your Message *</label>
+          <textarea id="message" name="message" placeholder="Tell us more about your inquiry..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
     </div>
   </div>
 </section>
@@ -1071,66 +1211,54 @@
     <div>
       <div class="footer-brand-name">BoldHer Foundation Uganda</div>
       <div class="footer-tagline">Empower · Educate · Inspire</div>
-      <p class="footer-desc">A non-profit organisation dedicated to the empowerment, education, and inspiration of women and girls across Uganda and East Africa.</p>
+      <p class="footer-desc">
+        Transforming lives across Uganda through education, economic empowerment, and community inspiration. Join us in building a future where every woman thrives.
+      </p>
       <div class="footer-social">
-        <a href="https://vt.tiktok.com/ZS9sgS1t8/" target="_blank" class="social-icon" title="TikTok">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.76 0 1.41.28 1.91.74V9.26a4.98 4.98 0 0 0-1.91-.37C5.41 8.89 2 12.3 2 16.5s3.41 7.61 7.59 7.61 7.61-3.41 7.61-7.61v-3.83a4.825 4.825 0 0 0 3.77 1.76V12.5c0-.06 0-.12-.01-.18z"/></svg>
+        <a href="https://www.tiktok.com/@boldher" class="social-icon" title="TikTok">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.89 2.89 0 1 1-5.92-2.32c.44-.46 1.06-.75 1.75-.75V9.1a6.54 6.54 0 1 0 11.6 3.15v-3.6c1.44 1.08 3.1 1.86 4.82 2.18v-3.93a7.1 7.1 0 0 1-1.8-.46z"/></svg>
         </a>
-        <a href="https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9" target="_blank" class="social-icon" title="YouTube">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg>
+        <a href="https://www.youtube.com/@boldher" class="social-icon" title="YouTube">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
-        <a href="mailto:boldherfoundationuganda@gmail.com" class="social-icon" title="Email">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <a href="https://www.instagram.com/boldher" class="social-icon" title="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="2.5" width="19" height="19" rx="4.318" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3.636" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.273" cy="6.727" r="0.909" fill="currentColor"/></svg>
         </a>
       </div>
     </div>
     <div class="footer-col">
-      <h5>Our Work</h5>
+      <h5>Quick Links</h5>
       <ul>
-        <li><a href="#pillars">Empower</a></li>
-        <li><a href="#pillars">Educate</a></li>
-        <li><a href="#pillars">Inspire</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#pillars">Our Work</a></li>
         <li><a href="#programs">Programs</a></li>
+        <li><a href="#gallery">Gallery</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h5>Foundation</h5>
+      <h5>Programs</h5>
       <ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#vision">Our Vision</a></li>
-        <li><a href="#media">Media</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#programs">Leadership Academy</a></li>
+        <li><a href="#programs">Girls Education</a></li>
+        <li><a href="#programs">Entrepreneurship</a></li>
+        <li><a href="#programs">Wellness Circles</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>Get Involved</h5>
       <ul>
-        <li><a href="#contact">Volunteer</a></li>
         <li><a href="#contact">Donate</a></li>
+        <li><a href="#contact">Volunteer</a></li>
         <li><a href="#contact">Partner With Us</a></li>
-        <li><a href="#contact">Spread the Word</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 BoldHer Foundation Uganda. All rights reserved. | <a href="mailto:boldherfoundationuganda@gmail.com">boldherfoundationuganda@gmail.com</a></p>
-    <p class="footer-love">Made with purpose for every bold woman in Uganda.</p>
+    <p>&copy; 2026 BoldHer Foundation Uganda. All rights reserved.</p>
+    <p class="footer-love">Made with <span style="color: var(--rose);">♥</span> for the women of Uganda</p>
   </div>
 </footer>
-
-<script>
-  // Nav scroll effect
-  window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-      nav.style.background = 'rgba(255,255,255,0.98)';
-      nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-    } else {
-      nav.style.background = 'rgba(255,255,255,0.92)';
-      nav.style.boxShadow = 'none';
-    }
-  });
-</script>
 
 </body>
 </html>
