@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>BoldHer Foundation Uganda — Empower · Educate · Inspire</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -27,6 +27,7 @@
     color: var(--text);
     background: var(--white);
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
   }
 
   /* NAV */
@@ -98,11 +99,11 @@
   }
   .hero h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.2rem, 6vw, 5.5rem);
+    font-size: clamp(2rem, 8vw, 5.5rem);
     font-weight: 300;
-    line-height: 1.05;
+    line-height: 1.1;
     color: var(--white);
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.5rem;
     animation: fadeUp 0.8s 0.15s ease both;
   }
   .hero h1 em {
@@ -113,9 +114,9 @@
     background-clip: text;
   }
   .hero p {
-    font-size: 1.1rem; font-weight: 300; line-height: 1.8;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 300; line-height: 1.7;
     color: rgba(255,255,255,0.72);
-    max-width: 520px; margin-bottom: 2.8rem;
+    max-width: 520px; margin-bottom: 2.5rem;
     animation: fadeUp 0.8s 0.3s ease both;
   }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.8s 0.45s ease both; }
@@ -125,6 +126,8 @@
     font-size: 0.9rem; font-weight: 500; text-decoration: none;
     transition: opacity 0.2s, transform 0.2s;
     display: inline-block;
+    border: none;
+    cursor: pointer;
   }
   .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
   .btn-outline {
@@ -133,6 +136,8 @@
     font-size: 0.9rem; font-weight: 400; text-decoration: none;
     transition: background 0.2s, transform 0.2s;
     display: inline-block;
+    background: transparent;
+    cursor: pointer;
   }
   .btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
   .hero-scroll {
@@ -149,32 +154,32 @@
   /* STATS STRIP */
   .stats-strip {
     background: var(--grad);
-    padding: 3rem 4rem;
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 2rem; text-align: center;
+    padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 4rem);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: clamp(1rem, 3vw, 2rem); text-align: center;
   }
   .stat-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem; font-weight: 600; color: white;
+    font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; color: white;
     line-height: 1;
   }
   .stat-label {
-    font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em;
+    font-size: clamp(0.65rem, 2vw, 0.8rem); font-weight: 400; letter-spacing: 0.1em;
     text-transform: uppercase; color: rgba(255,255,255,0.8);
     margin-top: 0.5rem;
   }
 
   /* SECTION */
-  section { padding: 7rem 4rem; }
+  section { padding: clamp(3rem, 6vw, 7rem) clamp(1.5rem, 4vw, 4rem); }
   .section-tag {
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
+    font-size: clamp(0.65rem, 1.5vw, 0.75rem); font-weight: 500; letter-spacing: 0.2em;
     text-transform: uppercase; color: var(--rose);
     margin-bottom: 1rem; display: block;
   }
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 4vw, 3.4rem);
-    font-weight: 300; line-height: 1.15; color: var(--text);
+    font-size: clamp(1.8rem, 5vw, 3.4rem);
+    font-weight: 300; line-height: 1.2; color: var(--text);
     margin-bottom: 1.5rem;
   }
   .section-title em { font-style: italic; color: var(--plum); }
@@ -182,15 +187,15 @@
   /* ABOUT */
   .about { background: var(--petal); }
   .about-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 6rem);
     align-items: center; max-width: 1200px; margin: 0 auto;
   }
   .about-text p {
-    font-size: 1rem; line-height: 1.9; color: var(--muted);
+    font-size: clamp(0.9rem, 2vw, 1rem); line-height: 1.8; color: var(--muted);
     margin-bottom: 1.4rem;
   }
   .about-visual {
-    position: relative; height: 480px;
+    position: relative; height: clamp(250px, 50vw, 480px);
   }
   .about-card-main {
     position: absolute; inset: 0;
@@ -208,10 +213,10 @@
     position: relative; z-index: 1;
     display: flex; flex-direction: column; align-items: center; gap: 1rem;
   }
-  .about-icon-wrap svg { width: 80px; height: 80px; }
+  .about-icon-wrap svg { width: clamp(60px, 15vw, 80px); height: clamp(60px, 15vw, 80px); }
   .about-tagline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem; font-style: italic;
+    font-size: clamp(1.2rem, 4vw, 2rem); font-style: italic;
     color: white; text-align: center;
   }
   .about-badge {
@@ -223,20 +228,46 @@
   }
   .about-badge strong {
     display: block; font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem; font-weight: 600; color: var(--plum);
+    font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 600; color: var(--plum);
   }
   .about-badge span {
-    font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em;
+    font-size: clamp(0.65rem, 1.5vw, 0.75rem); color: var(--muted); letter-spacing: 0.08em;
+  }
+
+  /* OBJECTIVES SECTION */
+  .objectives {
+    background: var(--petal);
+  }
+  .objectives-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2rem); margin-top: 2rem; max-width: 1200px; margin-left: auto; margin-right: auto;
+  }
+  .objective-card {
+    background: white; padding: clamp(1.5rem, 3vw, 2rem); border-radius: 16px;
+    border-left: 4px solid var(--rose);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .objective-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(123,31,162,0.1);
+  }
+  .objective-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 600; color: var(--plum);
+    margin-bottom: 0.8rem;
+  }
+  .objective-card p {
+    font-size: clamp(0.85rem, 1.8vw, 0.9rem); line-height: 1.7; color: var(--muted);
   }
 
   /* PILLARS */
   .pillars { background: white; }
   .pillars-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 2rem; margin-top: 4rem; max-width: 1200px; margin-left: auto; margin-right: auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2rem); margin-top: 2rem; max-width: 1200px; margin-left: auto; margin-right: auto;
   }
   .pillar-card {
-    padding: 2.5rem; border-radius: 4px 32px 4px 32px;
+    padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: 4px 32px 4px 32px;
     position: relative; overflow: hidden;
     transition: transform 0.3s;
   }
@@ -246,7 +277,7 @@
   .pillar-card:nth-child(3) { background: linear-gradient(135deg, #fff0e8 0%, #ffe4d6 100%); }
   .pillar-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem; font-weight: 300;
+    font-size: clamp(3rem, 8vw, 5rem); font-weight: 300;
     color: rgba(123,31,162,0.1);
     position: absolute; top: 0.5rem; right: 1.5rem;
     line-height: 1;
@@ -260,24 +291,46 @@
   .pillar-icon svg { width: 24px; height: 24px; fill: white; }
   .pillar-card h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.7rem; font-weight: 600; color: var(--text);
+    font-size: clamp(1.3rem, 3vw, 1.7rem); font-weight: 600; color: var(--text);
     margin-bottom: 0.8rem;
   }
-  .pillar-card p { font-size: 0.92rem; line-height: 1.8; color: var(--muted); }
+  .pillar-card p { font-size: clamp(0.85rem, 2vw, 0.92rem); line-height: 1.7; color: var(--muted); }
+
+  /* CORE VALUES SECTION */
+  .core-values {
+    background: white;
+  }
+  .values-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2rem); margin-top: 2rem; max-width: 1200px; margin-left: auto; margin-right: auto;
+  }
+  .value-card {
+    background: var(--petal); padding: clamp(1.5rem, 3vw, 2rem); border-radius: 16px;
+    text-align: center; transition: transform 0.3s;
+  }
+  .value-card:hover { transform: translateY(-4px); }
+  .value-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 600; color: var(--plum);
+    margin-bottom: 0.8rem;
+  }
+  .value-card p {
+    font-size: clamp(0.85rem, 1.8vw, 0.9rem); line-height: 1.7; color: var(--muted);
+  }
 
   /* PROGRAMS */
   .programs { background: var(--dark); }
   .programs .section-title { color: white; }
   .programs .section-title em { color: var(--rose); }
-  .programs > p { color: rgba(255,255,255,0.6); max-width: 560px; margin-bottom: 4rem; font-size: 1rem; line-height: 1.8; }
+  .programs > p { color: rgba(255,255,255,0.6); max-width: 560px; margin-bottom: 3rem; font-size: clamp(0.9rem, 2vw, 1rem); line-height: 1.8; }
   .programs-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem; max-width: 1200px; margin: 0 auto;
   }
   .program-card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px; padding: 2.5rem;
+    border-radius: 20px; padding: clamp(1.5rem, 3vw, 2.5rem);
     transition: background 0.3s, transform 0.3s;
     position: relative; overflow: hidden;
   }
@@ -292,10 +345,10 @@
   .program-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
   .program-card h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem; font-weight: 600; color: white;
+    font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 600; color: white;
     margin-bottom: 0.8rem;
   }
-  .program-card p { font-size: 0.9rem; line-height: 1.8; color: rgba(255,255,255,0.55); }
+  .program-card p { font-size: clamp(0.85rem, 1.8vw, 0.9rem); line-height: 1.8; color: rgba(255,255,255,0.55); }
   .program-tag {
     display: inline-block; font-size: 0.7rem; font-weight: 500;
     letter-spacing: 0.12em; text-transform: uppercase;
@@ -304,14 +357,40 @@
     margin-bottom: 1.2rem;
   }
 
-  /* STORY / VISION */
+  /* TEAM/FOUNDERS SECTION */
+  .team {
+    background: white;
+  }
+  .team-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2rem); margin-top: 2rem; max-width: 1200px; margin-left: auto; margin-right: auto;
+  }
+  .team-card {
+    background: var(--petal); padding: clamp(1.5rem, 3vw, 2rem); border-radius: 16px;
+    text-align: center; border: 2px solid transparent;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .team-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--rose);
+  }
+  .team-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2.5vw, 1.3rem); font-weight: 600; color: var(--plum);
+    margin-bottom: 0.4rem;
+  }
+  .team-card p {
+    font-size: clamp(0.85rem, 1.8vw, 0.9rem); color: var(--muted);
+  }
+
+  /* VISION */
   .vision {
     background: var(--petal);
     display: grid; grid-template-columns: 1fr 1fr;
     padding: 0; min-height: 600px;
   }
   .vision-text {
-    padding: 7rem 5rem;
+    padding: clamp(3rem, 6vw, 7rem) clamp(2rem, 4vw, 5rem);
     display: flex; flex-direction: column; justify-content: center;
   }
   .vision-image {
@@ -327,9 +406,9 @@
   .vision-quote {
     position: relative; z-index: 1;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem; font-style: italic;
+    font-size: clamp(1.4rem, 4vw, 2.2rem); font-style: italic;
     color: white; text-align: center;
-    padding: 3rem; line-height: 1.5;
+    padding: clamp(2rem, 3vw, 3rem); line-height: 1.5;
   }
   .vision-quote cite {
     display: block; font-style: normal;
@@ -338,11 +417,11 @@
     text-transform: uppercase; color: rgba(255,255,255,0.65);
     margin-top: 1.5rem;
   }
-  .vision-text p { font-size: 1rem; line-height: 1.9; color: var(--muted); margin-bottom: 1.4rem; }
+  .vision-text p { font-size: clamp(0.9rem, 2vw, 1rem); line-height: 1.8; color: var(--muted); margin-bottom: 1.4rem; }
   .values-list { list-style: none; margin-top: 1rem; }
   .values-list li {
     display: flex; align-items: center; gap: 0.8rem;
-    font-size: 0.95rem; color: var(--text); padding: 0.6rem 0;
+    font-size: clamp(0.85rem, 2vw, 0.95rem); color: var(--text); padding: 0.6rem 0;
     border-bottom: 1px solid rgba(123,31,162,0.1);
   }
   .values-list li::before {
@@ -350,129 +429,21 @@
     background: var(--grad); flex-shrink: 0;
   }
 
-  /* MEDIA / SOCIAL */
-  .media { background: white; }
-  .media-inner { max-width: 1200px; margin: 0 auto; }
-  .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 4rem; }
-  .media-card {
-    border-radius: 20px; overflow: hidden;
-    border: 1px solid rgba(123,31,162,0.12);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .media-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(123,31,162,0.12); }
-  .media-thumb {
-    background: var(--grad);
-    aspect-ratio: 16/9;
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-  }
-  .media-thumb::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: rgba(0,0,0,0.25);
-  }
-  .play-btn {
-    width: 64px; height: 64px; border-radius: 50%;
-    background: white; display: flex; align-items: center; justify-content: center;
-    position: relative; z-index: 1; cursor: pointer;
-    transition: transform 0.2s;
-  }
-  .play-btn:hover { transform: scale(1.1); }
-  .play-btn svg { width: 24px; height: 24px; margin-left: 3px; }
-  .media-info { padding: 1.5rem; }
-  .media-platform {
-    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--rose); margin-bottom: 0.5rem;
-  }
-  .media-info h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; font-weight: 600; color: var(--text);
-    margin-bottom: 0.4rem;
-  }
-  .media-info p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
-  .media-link {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    margin-top: 0.8rem; font-size: 0.85rem; font-weight: 500;
-    color: var(--plum); text-decoration: none;
-    transition: gap 0.2s;
-  }
-  .media-link:hover { gap: 0.6rem; }
-
-  /* GALLERY */
-  .gallery { background: white; }
-  .gallery-inner { max-width: 1200px; margin: 0 auto; }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 4rem;
-  }
-  .gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 16px;
-    aspect-ratio: 1;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 8px 30px rgba(123,31,162,0.1);
-  }
-  .gallery-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 50px rgba(123,31,162,0.15);
-  }
-  .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s;
-  }
-  .gallery-item:hover img {
-    transform: scale(1.08);
-  }
-  .gallery-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(123,31,162,0.7) 0%, rgba(232,82,123,0.7) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-    padding: 2rem;
-    text-align: center;
-  }
-  .gallery-item:hover .gallery-overlay {
-    opacity: 1;
-  }
-  .gallery-overlay h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 0.5rem;
-  }
-  .gallery-overlay p {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.6;
-  }
-
   /* CONTACT */
-  .contact { background: var(--dark); padding: 7rem 4rem; }
+  .contact { background: var(--dark); padding: clamp(3rem, 6vw, 7rem) clamp(1.5rem, 4vw, 4rem); }
   .contact-inner {
     max-width: 900px; margin: 0 auto; text-align: center;
   }
   .contact .section-title { color: white; }
-  .contact p { color: rgba(255,255,255,0.6); font-size: 1.05rem; line-height: 1.8; margin-bottom: 3.5rem; }
+  .contact p { color: rgba(255,255,255,0.6); font-size: clamp(0.9rem, 2vw, 1.05rem); line-height: 1.8; margin-bottom: 2.5rem; }
   .contact-cards {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem; margin-bottom: 4rem;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem; margin-bottom: 3rem;
   }
   .contact-card {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px; padding: 2rem;
+    border-radius: 16px; padding: clamp(1.2rem, 2.5vw, 2rem);
     transition: background 0.3s;
   }
   .contact-card:hover { background: rgba(255,255,255,0.1); }
@@ -484,70 +455,34 @@
   }
   .contact-card-icon svg { width: 22px; height: 22px; fill: var(--rose); }
   .contact-card h4 {
-    font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem); letter-spacing: 0.1em; text-transform: uppercase;
     color: rgba(255,255,255,0.5); margin-bottom: 0.5rem;
   }
-  .contact-card p { font-size: 0.95rem; color: white; word-break: break-all; }
+  .contact-card p { font-size: clamp(0.85rem, 1.8vw, 0.95rem); color: white; word-break: break-all; }
   .contact-card a { color: var(--rose); text-decoration: none; }
-  .contact-form {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 24px; padding: 3rem;
-  }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-  .form-group label { font-size: 0.8rem; font-weight: 500; color: rgba(255,255,255,0.6); text-align: left; }
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 10px; padding: 0.85rem 1.1rem;
-    color: white; font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
-    outline: none; transition: border-color 0.2s;
-    width: 100%;
-  }
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus { border-color: var(--rose); }
-  .form-group input::placeholder,
-  .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
-  .form-group textarea { resize: vertical; min-height: 120px; }
-  .form-group select option { background: #2D1535; }
-  .form-full { margin-bottom: 1rem; }
-  .form-submit {
-    width: 100%; padding: 1rem;
-    background: var(--grad); color: white;
-    border: none; border-radius: 50px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem; font-weight: 500;
-    cursor: pointer; transition: opacity 0.2s;
-    margin-top: 0.5rem;
-  }
-  .form-submit:hover { opacity: 0.88; }
 
   /* FOOTER */
   footer {
     background: #0E0815;
-    padding: 5rem 4rem 3rem;
+    padding: clamp(2rem, 4vw, 5rem) clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 3vw, 3rem);
     border-top: 1px solid rgba(255,255,255,0.05);
   }
   .footer-top {
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 4rem; margin-bottom: 4rem;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: clamp(2rem, 4vw, 4rem); margin-bottom: 3rem;
   }
   .footer-brand-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem; font-weight: 600;
+    font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 600;
     background: var(--grad);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     margin-bottom: 1rem;
   }
   .footer-tagline {
-    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    font-size: clamp(0.65rem, 1.5vw, 0.75rem); letter-spacing: 0.2em; text-transform: uppercase;
     color: rgba(255,255,255,0.35); margin-bottom: 1.2rem;
   }
-  .footer-desc { font-size: 0.88rem; line-height: 1.8; color: rgba(255,255,255,0.45); }
+  .footer-desc { font-size: clamp(0.8rem, 1.8vw, 0.88rem); line-height: 1.8; color: rgba(255,255,255,0.45); }
   .footer-social { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
   .social-icon {
     width: 38px; height: 38px; border-radius: 10px;
@@ -558,14 +493,14 @@
   .social-icon:hover { border-color: var(--rose); background: rgba(232,82,123,0.15); }
   .social-icon svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.6); }
   .footer-col h5 {
-    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em;
+    font-size: clamp(0.65rem, 1.5vw, 0.75rem); font-weight: 500; letter-spacing: 0.15em;
     text-transform: uppercase; color: rgba(255,255,255,0.5);
     margin-bottom: 1.2rem;
   }
   .footer-col ul { list-style: none; }
   .footer-col ul li { margin-bottom: 0.7rem; }
   .footer-col ul li a {
-    font-size: 0.88rem; color: rgba(255,255,255,0.45);
+    font-size: clamp(0.8rem, 1.8vw, 0.88rem); color: rgba(255,255,255,0.45);
     text-decoration: none; transition: color 0.2s;
   }
   .footer-col ul li a:hover { color: var(--rose); }
@@ -575,11 +510,8 @@
     display: flex; justify-content: space-between; align-items: center;
     flex-wrap: wrap; gap: 1rem;
   }
-  .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+  .footer-bottom p { font-size: clamp(0.75rem, 1.5vw, 0.8rem); color: rgba(255,255,255,0.3); }
   .footer-bottom a { color: var(--rose); text-decoration: none; }
-  .footer-love {
-    font-size: 0.8rem; color: rgba(255,255,255,0.3);
-  }
 
   /* ANIMATIONS */
   @keyframes fadeUp {
@@ -610,25 +542,12 @@
   @media (max-width: 1024px) {
     nav { padding: 1rem 2.5rem; }
     .nav-brand { font-size: 1.2rem; }
-    section { padding: 5rem 3rem; }
-    .hero { padding: 6rem 3rem 4rem; }
-    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .about-visual { height: 350px; }
     .about-badge { bottom: -1rem; right: -1rem; padding: 0.9rem 1.4rem; }
-    .about-badge strong { font-size: 1.8rem; }
-    .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-    .pillar-card { padding: 2rem; }
-    .programs-grid { grid-template-columns: 1fr; }
     .vision { grid-template-columns: 1fr; min-height: auto; }
-    .vision-text { padding: 4rem 3rem; }
+    .vision-text { padding: 3.5rem 2.5rem; }
     .vision-image { min-height: 350px; }
-    .media-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    .contact-cards { grid-template-columns: repeat(2, 1fr); }
-    .form-row { grid-template-columns: 1fr; }
-    .footer-top { grid-template-columns: 1fr 1fr; gap: 3rem; }
-    .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 2.5rem 3rem; gap: 1.5rem; }
-    .stat-num { font-size: 2.2rem; }
     .sparkles { display: none; }
   }
 
@@ -638,120 +557,46 @@
     .nav-brand { font-size: 1rem; }
     .nav-links { display: none; }
     
-    section { padding: 3.5rem 1.5rem; }
-    .hero { padding: 5rem 1.5rem 3rem; min-height: auto; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.2rem; }
-    .hero p { font-size: 0.95rem; }
-    .hero-actions { flex-direction: column; }
-    .btn-primary, .btn-outline { width: 100%; text-align: center; padding: 0.8rem 1.5rem; }
+    .about-inner { gap: 1.5rem; }
+    .about-visual { height: 250px; }
+    .about-card-main { border-radius: 2px 50px 2px 50px; }
+    .about-badge { position: relative; bottom: auto; right: auto; margin-top: 1.5rem; }
     
     .hero-scroll { display: none; }
     .hero-dots { display: none; }
     
-    .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; gap: 1rem; }
-    .stat-num { font-size: 2rem; }
-    .stat-label { font-size: 0.7rem; }
-    
-    .about-inner { gap: 2rem; }
-    .about-visual { height: 280px; }
-    .about-card-main { border-radius: 2px 60px 2px 60px; }
-    .about-icon-wrap svg { width: 60px; height: 60px; }
-    .about-tagline { font-size: 1.4rem; }
-    .about-badge { position: relative; bottom: auto; right: auto; margin-top: 1.5rem; }
-    
-    .pillars-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .pillar-card { padding: 1.5rem; }
-    .pillar-num { font-size: 3.5rem; }
-    .pillar-card h3 { font-size: 1.4rem; }
-    
-    .programs > p { max-width: 100%; }
-    .program-card { padding: 1.8rem; }
-    .program-card h3 { font-size: 1.2rem; }
-    .program-card p { font-size: 0.85rem; }
-    
-    .vision-text { padding: 3rem 1.5rem; }
-    .vision-quote { font-size: 1.6rem; padding: 2rem; }
-    .values-list li { font-size: 0.9rem; }
-    
-    .media-inner { padding: 0 1.5rem; }
-    .media-grid { gap: 1.5rem; }
-    .play-btn { width: 50px; height: 50px; }
-    .play-btn svg { width: 20px; height: 20px; }
-    .media-info h3 { font-size: 1.1rem; }
-    .media-info p { font-size: 0.8rem; }
-    
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .gallery-overlay h3 { font-size: 1.2rem; }
-    .gallery-overlay p { font-size: 0.8rem; }
-    
-    .contact { padding: 3.5rem 1.5rem; }
-    .contact-cards { grid-template-columns: 1fr; gap: 1rem; }
-    .contact-card { padding: 1.5rem; }
-    .contact-card-icon { width: 40px; height: 40px; margin-bottom: 0.8rem; }
-    .contact-card-icon svg { width: 18px; height: 18px; }
-    .contact-form { padding: 2rem 1.5rem; }
-    .contact-form h3 { font-size: 1.4rem; }
-    
-    footer { padding: 3rem 1.5rem 2rem; }
-    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-    .footer-brand-name { font-size: 1.4rem; }
-    .footer-col h5 { font-size: 0.7rem; }
-    .footer-col ul li { margin-bottom: 0.5rem; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-    .footer-bottom p { font-size: 0.75rem; }
+    .sparkles { display: none; }
   }
 
   /* SMALL PHONES (Below 480px) */
   @media (max-width: 479px) {
-    :root {
-      --grad: linear-gradient(135deg, #7B1FA2 0%, #E8527B 60%, #F0A070 100%);
-    }
+    body { font-size: 16px; }
     nav { padding: 0.8rem 1rem; }
-    .nav-brand { font-size: 0.9rem; }
+    .nav-brand { font-size: 0.95rem; }
     
-    section { padding: 2.5rem 1rem; }
-    .hero { padding: 4rem 1rem 2rem; }
-    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 1rem; line-height: 1.2; }
-    .hero p { font-size: 0.9rem; line-height: 1.6; }
-    .hero-tag { font-size: 0.7rem; padding: 0.3rem 0.8rem; margin-bottom: 1.5rem; }
-    .hero-actions { gap: 0.7rem; }
-    .btn-primary, .btn-outline { font-size: 0.8rem; padding: 0.7rem 1.2rem; }
+    section, .contact, .vision { padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 2vw, 1.5rem) !important; }
+    .hero { padding: clamp(3.5rem, 5vw, 4rem) 1rem clamp(1.5rem, 3vw, 2rem) !important; }
     
-    .stats-strip { grid-template-columns: 1fr; padding: 1.5rem 1rem; gap: 0.8rem; }
-    .stat-num { font-size: 1.8rem; }
-    .stat-label { font-size: 0.65rem; margin-top: 0.3rem; }
+    .hero h1 { line-height: 1.15; word-break: break-word; }
+    .hero-actions { gap: 0.5rem; }
+    .btn-primary, .btn-outline { width: 100%; padding: 0.65rem 1rem; font-size: 0.8rem; }
     
-    .section-title { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 1rem; }
-    .section-tag { font-size: 0.65rem; margin-bottom: 0.8rem; }
+    .about-visual { height: 200px; }
+    .about-badge { padding: 0.9rem 1.2rem; }
     
-    .about-text p { font-size: 0.9rem; margin-bottom: 1rem; }
-    .about-visual { height: 220px; margin-top: 1.5rem; }
-    .about-tagline { font-size: 1.2rem; }
+    .pillars-grid, .objectives-grid, .values-grid, .programs-grid, 
+    .team-grid, .contact-cards {
+      grid-template-columns: 1fr !important;
+    }
     
-    .pillar-card { padding: 1.2rem; }
-    .pillar-card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
-    .pillar-card p { font-size: 0.8rem; line-height: 1.6; }
+    .pillar-card, .objective-card, .value-card, .program-card, 
+    .team-card, .contact-card { padding: 1rem !important; }
     
-    .program-card { padding: 1.5rem; }
-    .program-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
+    .vision-quote { padding: 1.5rem !important; }
+    .values-list li { font-size: 0.9rem; padding: 0.5rem 0; }
     
-    .gallery-grid { grid-template-columns: 1fr; gap: 1rem; }
-    .gallery-item { aspect-ratio: 4/3; }
-    
-    .contact-cards { gap: 0.8rem; }
-    .contact-card { padding: 1.2rem; }
-    .contact-card h4 { font-size: 0.75rem; }
-    .contact-card p { font-size: 0.9rem; }
-    .contact-form { padding: 1.5rem; }
-    .contact-form h3 { font-size: 1.2rem; margin-bottom: 1.5rem; }
-    .form-group label { font-size: 0.75rem; }
-    
-    footer { padding: 2rem 1rem 1.5rem; }
-    .footer-brand-name { font-size: 1.2rem; margin-bottom: 0.8rem; }
-    .footer-tagline { font-size: 0.65rem; margin-bottom: 1rem; }
-    .footer-desc { font-size: 0.8rem; }
-    .social-icon { width: 32px; height: 32px; }
-    .social-icon svg { width: 14px; height: 14px; }
+    .footer-top { gap: 1.5rem !important; }
+    .footer-bottom { flex-direction: column; text-align: center; }
   }
 </style>
 </head>
@@ -759,13 +604,12 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="#">BoldHer Foundation</a>
+  <a class="nav-brand" href="#">BoldHer</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#pillars">Our Work</a></li>
+    <li><a href="#objectives">Objectives</a></li>
+    <li><a href="#pillars">Work</a></li>
     <li><a href="#programs">Programs</a></li>
-    <li><a href="#media">Media</a></li>
-    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact" class="nav-cta">Get Involved</a></li>
   </ul>
 </nav>
@@ -783,7 +627,7 @@
   <div class="hero-content">
     <span class="hero-tag">BoldHer Foundation Uganda</span>
     <h1>She is <em>bold,<br>she is</em> unstoppable.</h1>
-    <p>Transforming lives across Uganda through education, economic empowerment and community inspiration one woman, one girl at a time.</p>
+    <p>Empowering girls and youth through education, menstrual health, leadership, and income-generating skills for sustainable community transformation across Uganda and Africa.</p>
     <div class="hero-actions">
       <a href="#about" class="btn-primary">Discover Our Mission</a>
       <a href="#contact" class="btn-outline">Support Our Cause</a>
@@ -796,19 +640,19 @@
 <div class="stats-strip">
   <div>
     <div class="stat-num">500+</div>
-    <div class="stat-label">Women Empowered</div>
+    <div class="stat-label">Girls & Youth Served</div>
   </div>
   <div>
-    <div class="stat-num">3</div>
-    <div class="stat-label">Core Pillars</div>
+    <div class="stat-num">6</div>
+    <div class="stat-label">Core Values</div>
   </div>
   <div>
     <div class="stat-num">Uganda</div>
-    <div class="stat-label">Communities Served</div>
+    <div class="stat-label">Communities Reached</div>
   </div>
   <div>
     <div class="stat-num">∞</div>
-    <div class="stat-label">Dreams Ignited</div>
+    <div class="stat-label">Futures Changed</div>
   </div>
 </div>
 
@@ -818,10 +662,10 @@
     <div class="about-text">
       <span class="section-tag">Our Story</span>
       <h2 class="section-title">A movement born from <em>purpose</em></h2>
-      <p>BoldHer Foundation Uganda is a non-profit organisation dedicated to the advancement of women and girls across Uganda. We believe every woman deserves the tools, knowledge and confidence to shape her own destiny.</p>
-      <p>Founded on the conviction that empowered women build stronger families and communities, we work at the intersection of education, economic independence and personal development creating pathways to transformation that last a lifetime.</p>
-      <p>We are more than a foundation. We are a movement. A sisterhood. A promise that no woman stands alone on her journey to greatness.</p>
-      <a href="#pillars" class="btn-primary" style="margin-top:1rem;">What We Do</a>
+      <p>BoldHer Foundation Uganda is a non-profit organisation dedicated to the advancement of girls and youth across Uganda. We believe every young person deserves the tools, knowledge and confidence to take control of their future.</p>
+      <p>Founded on March 3rd, 2025, by a dedicated team of social change makers, we work at the intersection of menstrual health awareness, education, leadership development, and economic empowerment creating pathways for sustainable transformation.</p>
+      <p>We are more than a foundation. We are a movement. A sisterhood. A promise that no girl or young person stands alone on their journey to greatness.</p>
+      <a href="#objectives" class="btn-primary" style="margin-top:1rem;">What We Do</a>
     </div>
     <div class="about-visual">
       <div class="about-card-main">
@@ -842,11 +686,41 @@
   </div>
 </section>
 
+<!-- OUR OBJECTIVES -->
+<section class="objectives" id="objectives">
+  <div style="max-width:1200px; margin: 0 auto;">
+    <span class="section-tag">Our Goals</span>
+    <h2 class="section-title">Five key <em>objectives</em></h2>
+  </div>
+  <div class="objectives-grid">
+    <div class="objective-card">
+      <h4>Menstrual Health Awareness</h4>
+      <p>Educate girls and boys about menstruation, reduce stigma, and improve menstrual hygiene management in schools and communities.</p>
+    </div>
+    <div class="objective-card">
+      <h4>Reduce School Dropout</h4>
+      <p>Support girls with knowledge, mentorship, and practical solutions like reusable sanitary pads to keep them in school confidently.</p>
+    </div>
+    <div class="objective-card">
+      <h4>Income-Generating Skills</h4>
+      <p>Train young people in soap making, paper bag production, brick making, and sack farming for self-reliance and poverty reduction.</p>
+    </div>
+    <div class="objective-card">
+      <h4>Youth Economic Empowerment</h4>
+      <p>Help young people earn income that supports their education, personal needs, and family wellbeing for sustainable development.</p>
+    </div>
+    <div class="objective-card">
+      <h4>Community & Youth Leadership</h4>
+      <p>Mobilize volunteers, schools, parents, and communities to develop responsible future leaders creating positive change in Uganda and Africa.</p>
+    </div>
+  </div>
+</section>
+
 <!-- PILLARS -->
 <section class="pillars" id="pillars">
   <div style="max-width:1200px; margin: 0 auto;">
-    <span class="section-tag">Three Pillars</span>
-    <h2 class="section-title">Everything we do is built<br>on <em>these foundations</em></h2>
+    <span class="section-tag">Core Foundations</span>
+    <h2 class="section-title">Built on <em>three pillars</em></h2>
   </div>
   <div class="pillars-grid">
     <div class="pillar-card">
@@ -855,7 +729,7 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/></svg>
       </div>
       <h3>Empower</h3>
-      <p>We equip women and girls with the skills, resources and self-belief to take charge of their lives. Through mentorship, leadership training and entrepreneurship support, we create confident leaders ready to inspire change.</p>
+      <p>We equip girls and youth with skills, resources and self-belief to take charge of their lives through mentorship, leadership training and entrepreneurship support.</p>
     </div>
     <div class="pillar-card">
       <div class="pillar-num">02</div>
@@ -863,15 +737,49 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
       </div>
       <h3>Educate</h3>
-      <p>Education is the most powerful weapon for change. We provide access to quality learning, vocational training, digital literacy and scholarships breaking barriers that have historically kept girls out of school.</p>
+      <p>Education is the most powerful weapon for change. We provide quality learning, vocational training, digital literacy and scholarships breaking historical barriers.</p>
     </div>
     <div class="pillar-card">
       <div class="pillar-num">03</div>
       <div class="pillar-icon">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.7 2.82 4.7.62L11.99 9.5l1.71 4.15 4.7-.62-3.7-2.82 1.12 4.81z"/></svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.7-2.83h4.9L12 5.59l1.51 4.77h4.9l-3.7 2.83 1.12 4.81z"/></svg>
       </div>
       <h3>Inspire</h3>
-      <p>Every woman who rises lifts others. We celebrate stories of resilience, create platforms for women's voices to be heard and build a community of hope inspiring the next generation to dream bigger.</p>
+      <p>Every woman and girl who rises lifts others. We celebrate resilience, create platforms for voices and build a community of hope for future generations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="core-values" id="values">
+  <div style="max-width:1200px; margin: 0 auto;">
+    <span class="section-tag">Our Values</span>
+    <h2 class="section-title">Principles that <em>guide us</em></h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-card">
+      <h4>Empowerment</h4>
+      <p>We believe every girl and young person deserves opportunities to achieve their full potential through education, leadership and life skills.</p>
+    </div>
+    <div class="value-card">
+      <h4>Equality</h4>
+      <p>We promote fairness, inclusion, dignity and respect by creating equal opportunities and reducing discrimination and stigma in communities.</p>
+    </div>
+    <div class="value-card">
+      <h4>Integrity</h4>
+      <p>We work with honesty, accountability and transparency in all programs and partnerships to build trust with communities and stakeholders.</p>
+    </div>
+    <div class="value-card">
+      <h4>Compassion</h4>
+      <p>We care deeply about the wellbeing and future of vulnerable children and communities by providing practical, sustainable support with humanity.</p>
+    </div>
+    <div class="value-card">
+      <h4>Innovation</h4>
+      <p>We encourage creative, affordable and locally-driven solutions using practical skills, entrepreneurship and sustainable approaches.</p>
+    </div>
+    <div class="value-card">
+      <h4>Teamwork</h4>
+      <p>We believe strong partnerships, volunteerism and cooperation are essential because transforming Uganda requires collective responsibility and unity.</p>
     </div>
   </div>
 </section>
@@ -881,28 +789,67 @@
   <div style="max-width:1200px; margin: 0 auto;">
     <span class="section-tag">Our Programs</span>
     <h2 class="section-title">Initiatives driving <em>real change</em></h2>
-    <p>Our programs are designed with women and girls at the centre meeting them where they are and walking with them toward where they want to be.</p>
+    <p>Our programs are designed with girls and youth at the centre, meeting them where they are and walking with them toward where they want to be.</p>
     <div class="programs-grid">
       <div class="program-card">
         <div class="program-tag">Leadership</div>
-        <h3>BoldHer Leadership Academy</h3>
-        <p>An intensive mentorship and leadership program developing the next generation of bold female leaders in Uganda from grassroots community advocates to business entrepreneurs.</p>
+        <h3>Leadership Academy</h3>
+        <p>An intensive mentorship program developing the next generation of bold female leaders in Uganda from community advocates to business entrepreneurs.</p>
       </div>
       <div class="program-card">
         <div class="program-tag">Education</div>
-        <h3>Girls Back to School Initiative</h3>
-        <p>Providing scholarships, school supplies and support systems to keep vulnerable girls in school and equip them with the education they deserve, regardless of circumstance.</p>
+        <h3>Back to School Initiative</h3>
+        <p>Scholarships, school supplies and support systems to keep vulnerable girls in school and equip them with the education they deserve.</p>
       </div>
       <div class="program-card">
         <div class="program-tag">Economic</div>
-        <h3>Women Entrepreneurship Hub</h3>
-        <p>Supporting women-owned small businesses through training, seed funding, market linkages and mentorship building economic independence from the ground up.</p>
+        <h3>Entrepreneurship Hub</h3>
+        <p>Supporting youth-led businesses through training, seed funding, market linkages and mentorship building economic independence.</p>
       </div>
       <div class="program-card">
-        <div class="program-tag">Wellness</div>
-        <h3>Mental Health & Wellness Circles</h3>
-        <p>Safe spaces for women and girls to talk, heal and grow together. Community-based mental health support, counselling access and wellness workshops across Uganda.</p>
+        <div class="program-tag">Health</div>
+        <h3>Menstrual Health Program</h3>
+        <p>Awareness, hygiene education, and distribution of reusable sanitary pads to ensure girls' health and educational continuity.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM/FOUNDERS -->
+<section class="team" id="team">
+  <div style="max-width:1200px; margin: 0 auto;">
+    <span class="section-tag">Our Team</span>
+    <h2 class="section-title">Meet the <em>founders</em></h2>
+    <p style="max-width: 600px; margin: 1rem auto 2rem; font-size: clamp(0.9rem, 2vw, 1rem); color: var(--muted); line-height: 1.7;">Founded March 3rd, 2025 by a passionate team of social change makers committed to transforming lives across Uganda.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <h4>Kalyesubula Raymond</h4>
+      <p>Founder</p>
+    </div>
+    <div class="team-card">
+      <h4>Nakasi Lilian</h4>
+      <p>Co-founder</p>
+    </div>
+    <div class="team-card">
+      <h4>Nabirye Deborah</h4>
+      <p>Co-founder</p>
+    </div>
+    <div class="team-card">
+      <h4>Komukyeya Thelma Yvonne</h4>
+      <p>Co-founder</p>
+    </div>
+    <div class="team-card">
+      <h4>Nsubuga Keith</h4>
+      <p>Co-founder</p>
+    </div>
+    <div class="team-card">
+      <h4>Ssempala Harrison</h4>
+      <p>Co-founder</p>
+    </div>
+    <div class="team-card">
+      <h4>Nsereko Hassan</h4>
+      <p>Co-founder</p>
     </div>
   </div>
 </section>
@@ -910,16 +857,16 @@
 <!-- VISION -->
 <div class="vision" id="vision">
   <div class="vision-text">
-    <span class="section-tag">Our Vision & Values</span>
-    <h2 class="section-title">A Uganda where every woman <em>thrives</em></h2>
-    <p>We envision a Uganda where no woman is held back by circumstance, culture, or lack of opportunity where every girl grows up knowing her potential is limitless.</p>
-    <p>Our work is guided by unwavering values that shape every programme, every partnership and every interaction we have.</p>
+    <span class="section-tag">Our Vision</span>
+    <h2 class="section-title">An empowered Africa where every girl <em>thrives</em></h2>
+    <p>We envision an Africa where no girl or young person is held back by circumstance, culture, or lack of opportunity. Where every young person is educated, healthy, skilled, confident, economically independent, and given equal opportunities to achieve their full potential.</p>
+    <p>Our commitment is to breaking barriers caused by poverty, menstrual stigma and inequality by empowering girls and youth through practical, life-changing interventions.</p>
     <ul class="values-list">
-      <li>Dignity — every woman deserves respect and recognition</li>
-      <li>Boldness — we champion courage over fear</li>
+      <li>Dignity — every person deserves respect and recognition</li>
+      <li>Boldness — we champion courage and confidence</li>
       <li>Community — we are stronger together than apart</li>
-      <li>Inclusivity — no woman is left behind</li>
-      <li>Integrity — transparent, accountable, and purpose-driven</li>
+      <li>Inclusivity — no one is left behind</li>
+      <li>Integrity — transparent and purpose-driven impact</li>
     </ul>
   </div>
   <div class="vision-image">
@@ -930,220 +877,16 @@
   </div>
 </div>
 
-<!-- MEDIA -->
-<section class="media" id="media">
-  <div class="media-inner">
-    <span class="section-tag">Media & Content</span>
-    <h2 class="section-title">Watch our <em>stories unfold</em></h2>
-    <div class="media-grid">
-      <div class="media-card">
-        <div class="media-thumb">
-          <div class="play-btn" onclick="window.open('https://vt.tiktok.com/ZS9sgS1t8/', '_blank')">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 5v14l11-7L8 5z" fill="#7B1FA2"/>
-            </svg>
-          </div>
-        </div>
-        <div class="media-info">
-          <div class="media-platform">TikTok</div>
-          <h3>BoldHer Foundation on TikTok</h3>
-          <p>Follow our journey, meet the women we serve, and see the transformation happening across Uganda, one story at a time.</p>
-          <a href="https://vt.tiktok.com/ZS9sgS1t8/" target="_blank" class="media-link">
-            Watch on TikTok →
-          </a>
-        </div>
-      </div>
-      <div class="media-card">
-        <div class="media-thumb">
-          <div class="play-btn" onclick="window.open('https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9', '_blank')">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 5v14l11-7L8 5z" fill="#E8527B"/>
-            </svg>
-          </div>
-        </div>
-        <div class="media-info">
-          <div class="media-platform">YouTube</div>
-          <h3>BoldHer Foundation on YouTube</h3>
-          <p>Inspiring short films, community highlights and impact stories from the women and girls whose lives are being transformed every day.</p>
-          <a href="https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9" target="_blank" class="media-link">
-            Watch on YouTube →
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Call to follow -->
-    <div style="text-align:center; margin-top: 4rem; padding: 3rem; background: var(--petal); border-radius: 20px;">
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:var(--text); margin-bottom:0.8rem;">
-        Join our growing community
-      </h3>
-      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:2rem; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.8;">
-        Follow, like, share and comment your support amplifies our mission and reaches more women and girls across Uganda.
-      </p>
-      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-        <a href="https://vt.tiktok.com/ZS9sgS1t8/" target="_blank" class="btn-primary">Follow on TikTok</a>
-        <a href="https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9" target="_blank" class="btn-outline" style="color:var(--plum); border-color:var(--plum);">Subscribe on YouTube</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="gallery" id="gallery">
-  <div class="gallery-grid">
-
-  <!-- Item 1 — replace src with your actual filename -->
-  <div class="gallery-item">
-    <img src="photo1.jpeg" alt="BoldHer Community Event">
-    <div class="gallery-overlay">
-      <h3>Community Event</h3>
-      <p>Building confident female leaders</p>
-    </div>
-  </div>
-
-  <!-- Item 2 -->
-  <div class="gallery-item">
-    <img src="photo2.jpeg" alt="Girls Education Program">
-    <div class="gallery-overlay">
-      <h3>Girls Education</h3>
-      <p>Keeping girls in school and thriving</p>
-    </div>
-  </div>
-
-  <!-- Item 3 -->
-  <div class="gallery-item">
-    <img src="photo3.jpeg" alt="Women Entrepreneurs">
-    <div class="gallery-overlay">
-      <h3>Entrepreneurship Hub</h3>
-      <p>Supporting women business owners</p>
-    </div>
-  </div>
-
-  <!-- Item 4 -->
-  <div class="gallery-item">
-    <img src="photo4.jpeg" alt="Wellness Circle">
-    <div class="gallery-overlay">
-      <h3>Wellness & Support</h3>
-      <p>Creating safe spaces for healing</p>
-    </div>
-  </div>
-
-  <!-- Item 5 -->
-  <div class="gallery-item">
-    <img src="photo5.jpeg" alt="Mentorship">
-    <div class="gallery-overlay">
-      <h3>Mentorship</h3>
-      <p>Guiding the next generation</p>
-    </div>
-  </div>
-
-  <!-- Item 6 -->
-  <div class="gallery-item">
-    <img src="photo7.jpeg" alt="Community Impact">
-    <div class="gallery-overlay">
-      <h3>Community Impact</h3>
-      <p>Empowering whole communities</p>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<!-- SUPPORT US -->
-<section style="background: var(--petal); padding: 7rem 4rem;">
-  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-    <span class="section-tag">Support Our Cause</span>
-    <h2 class="section-title">Your generosity <em>changes lives</em></h2>
-    <p style="color: var(--muted); font-size: 1rem; line-height: 1.8; max-width: 580px; margin: 0 auto 4rem;">
-      Every contribution big or small helps us empower more women and girls across Uganda. 
-      Choose the method that works best for you.
-    </p>
-
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
-
-      <!-- Mobile Money Card -->
-      <div style="background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(123,31,162,0.12); text-align: left;">
-        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-          <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--grad); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-5 18a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5-5H7V4h10v11z"/>
-            </svg>
-          </div>
-          <div>
-            <p style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.2rem;">Mobile Money</p>
-            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--text);">MTN / Airtel</h3>
-          </div>
-        </div>
-
-        <div style="background: var(--petal); border-radius: 12px; padding: 1.2rem 1.5rem; margin-bottom: 1rem;">
-          <p style="font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;">Airtel Money</p>
-          <p style="font-size: 1.4rem; font-weight: 500; color: var(--plum); font-family: 'Cormorant Garamond', serif; letter-spacing: 0.05em;">+256 742 253 436</p>
-          <p style="font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem;">Account Name: BoldHer Foundation Uganda</p>
-        </div>
-
-        <p style="font-size: 0.82rem; color: var(--muted); margin-top: 1.2rem; line-height: 1.7;">
-          Send via MTN MoMo or Airtel Money and use <strong style="color: var(--text);">"BoldHer Donation"</strong> as your reference.
-        </p>
-      </div>
-
-      <!-- Bank Account Card -->
-      <div style="background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(123,31,162,0.12); text-align: left;">
-        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-          <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--grad); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zm-8 9h19v3H2v-3zm14-9v7h3v-7h-3zM11.5 1L2 6v2h19V6l-9.5-5z"/>
-            </svg>
-          </div>
-          <div>
-            <p style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.2rem;">Bank Transfer</p>
-            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--text);">Bank Account</h3>
-          </div>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 0.7rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0; border-bottom: 1px solid rgba(123,31,162,0.08);">
-            <span style="font-size: 0.8rem; color: var(--muted);">Bank Name</span>
-            <span style="font-size: 0.9rem; font-weight: 500; color: var(--text);">STANBIC BANK</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0; border-bottom: 1px solid rgba(123,31,162,0.08);">
-            <span style="font-size: 0.8rem; color: var(--muted);">Account Name</span>
-            <span style="font-size: 0.9rem; font-weight: 500; color: var(--text);">BoldHer Foundation Uganda</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0; border-bottom: 1px solid rgba(123,31,162,0.08);">
-            <span style="font-size: 0.8rem; color: var(--muted);">Account Number</span>
-            <span style="font-size: 0.9rem; font-weight: 500; color: var(--plum);">XXXX XXXX XXXX</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0;">
-            <span style="font-size: 0.8rem; color: var(--muted);">Branch</span>
-            <span style="font-size: 0.9rem; font-weight: 500; color: var(--text);">Jinja, Uganda</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Thank you note -->
-    <div style="margin-top: 3rem; padding: 2rem; background: var(--grad); border-radius: 16px; color: white;">
-      <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; margin-bottom: 0.5rem;">
-        "Every shilling you give writes a new chapter in a woman's story."
-      </p>
-      <p style="font-size: 0.82rem; opacity: 0.8; letter-spacing: 0.1em; text-transform: uppercase;">
-        May God bless you for your generosity
-      </p>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-inner">
     <span class="section-tag">Get In Touch</span>
-    <h2 class="section-title">We'd love to hear <em>from you</em></h2>
-    <p>Whether you want to partner with us, donate, volunteer, or share your stor reach out. Every message brings us closer to our mission.</p>
-    
+    <h2 class="section-title">Get <em>involved</em> today</h2>
+    <p>Whether you want to volunteer, donate, or partner with us, we'd love to hear from you. Together we can transform lives across Uganda and Africa.</p>
     <div class="contact-cards">
       <div class="contact-card">
         <div class="contact-card-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </div>
         <h4>Email</h4>
         <p><a href="mailto:info@boldher.ug">info@boldher.ug</a></p>
@@ -1153,52 +896,15 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
         </div>
         <h4>Phone</h4>
-        <p><a href="tel:+256742253436">+256 742 253 436</a></p>
+        <p><a href="tel:+256700000000">+256 (0) 700 000 000</a></p>
       </div>
       <div class="contact-card">
         <div class="contact-card-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
         </div>
         <h4>Location</h4>
-        <p>Jinja, Uganda</p>
+        <p>Uganda, East Africa</p>
       </div>
-    </div>
-
-    <div class="contact-form">
-      <h3 style="color: white; margin-bottom: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300;">Send us a Message</h3>
-      <form>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" name="name" placeholder="Your full name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="+256 XXX XXX XXX">
-          </div>
-          <div class="form-group">
-            <label for="interest">Area of Interest *</label>
-            <select id="interest" name="interest" required>
-              <option value="">Select an option</option>
-              <option value="donate">Make a Donation</option>
-              <option value="volunteer">Volunteer With Us</option>
-              <option value="partner">Partnership Inquiry</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group form-full">
-          <label for="message">Your Message *</label>
-          <textarea id="message" name="message" placeholder="Tell us more about your inquiry..." required></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send Message</button>
-      </form>
     </div>
   </div>
 </section>
@@ -1207,20 +913,15 @@
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand-name">BoldHer Foundation Uganda</div>
-      <div class="footer-tagline">Empower · Educate · Inspire</div>
-      <p class="footer-desc">
-        Transforming lives across Uganda through education, economic empowerment and community inspiration. Join us in building a future where every woman thrives.
-      </p>
+      <div class="footer-brand-name">BoldHer</div>
+      <div class="footer-tagline">Foundation Uganda</div>
+      <p class="footer-desc">Empowering girls and youth through education, menstrual health, leadership and economic empowerment for sustainable community transformation across Uganda and Africa.</p>
       <div class="footer-social">
-        <a href="https://www.tiktok.com/@boldher" class="social-icon" title="TikTok">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.89 2.89 0 1 1-5.92-2.32c.44-.46 1.06-.75 1.75-.75V9.1a6.54 6.54 0 1 0 11.6 3.15v-3.6c1.44 1.08 3.1 1.86 4.82 2.18v-3.93a7.1 7.1 0 0 1-1.8-.46z"/></svg>
+        <a href="https://vt.tiktok.com/ZS9sgS1t8/" target="_blank" class="social-icon" title="Follow us on TikTok">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.4 2.4 0 0 1-2.4 2.4 2.4 2.4 0 0 1-2.4-2.4 2.4 2.4 0 0 1 2.4-2.4c.34 0 .67.05.98.14V9.58a6 6 0 0 0-.98-.05c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6V9.5c1.25.94 2.78 1.5 4.5 1.5V11a6.8 6.8 0 0 1-4.5-1.31z"/></svg>
         </a>
-        <a href="https://www.youtube.com/@boldher" class="social-icon" title="YouTube">
+        <a href="https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9" target="_blank" class="social-icon" title="Subscribe on YouTube">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/boldher" class="social-icon" title="Instagram">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="2.5" width="19" height="19" rx="4.318" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3.636" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.273" cy="6.727" r="0.909" fill="currentColor"/></svg>
         </a>
       </div>
     </div>
@@ -1228,33 +929,33 @@
       <h5>Quick Links</h5>
       <ul>
         <li><a href="#about">About Us</a></li>
+        <li><a href="#objectives">Our Goals</a></li>
         <li><a href="#pillars">Our Work</a></li>
         <li><a href="#programs">Programs</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Programs</h5>
-      <ul>
-        <li><a href="#programs">Leadership Academy</a></li>
-        <li><a href="#programs">Girls Education</a></li>
-        <li><a href="#programs">Entrepreneurship</a></li>
-        <li><a href="#programs">Wellness Circles</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>Get Involved</h5>
       <ul>
-        <li><a href="#contact">Donate</a></li>
+        <li><a href="#contact">Contact Us</a></li>
         <li><a href="#contact">Volunteer</a></li>
+        <li><a href="#contact">Donate</a></li>
         <li><a href="#contact">Partner With Us</a></li>
-        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Follow Us</h5>
+      <ul>
+        <li><a href="https://vt.tiktok.com/ZS9sgS1t8/" target="_blank">TikTok</a></li>
+        <li><a href="https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9" target="_blank">YouTube</a></li>
+        <li><a href="#contact">Instagram</a></li>
+        <li><a href="#contact">Facebook</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 BoldHer Foundation Uganda. All rights reserved.</p>
-    <p class="footer-love">Made with <span style="color: var(--rose);">♥</span> for the women of Uganda</p>
+    <p>&copy; 2025 BoldHer Foundation Uganda. All rights reserved.</p>
+    <p class="footer-love">Made with ❤️ for impact</p>
   </div>
 </footer>
 
