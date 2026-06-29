@@ -774,95 +774,135 @@
 </section>
 
 <!-- GALLERY -->
+<!-- GALLERY -->
 <section class="gallery" id="gallery">
-  <div style="max-width:1200px; margin: 0 auto;">
+  <div style="max-width:1200px; margin: 0 auto; margin-bottom: 2.5rem;">
     <span class="section-tag">Our Impact</span>
     <h2 class="section-title">Moments of <em>change</em></h2>
-    <p class="gallery-intro">Real stories, real impact. Every photo here represents a life touched, a barrier broken, and a future brightened. Add your own photos from your activities below by replacing the placeholders.</p>
+    <p class="gallery-intro">Real stories, real impact. Every photo here represents a life touched, a barrier broken, and a future brightened.</p>
   </div>
-  <div class="gallery-grid" style="max-width:1200px; margin: 0 auto;">
 
-    <!-- LARGE FEATURED IMAGE — replace src="" with your photo path -->
-    <div class="gallery-item large" style="border-style: dashed;">
-    <img src="comunity1.jpeg" alt="BoldHer community event"> 
-      <div class="gallery-placeholder">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="10" width="40" height="28" rx="4" stroke="#E8527B" stroke-width="2"/>
-          <circle cx="16" cy="20" r="4" stroke="#E8527B" stroke-width="2"/>
-          <path d="M4 34l10-8 8 6 8-10 14 12" stroke="#E8527B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <strong>Featured Community Event</strong>
-      </div>
-      <div class="gallery-caption">Our community in action BoldHer Foundation Uganda</div>
-    </div>
-    
-    <div class="gallery-item">
-      <img src="soapmaking.jpeg" alt="Soap Making workshop">
-      <div class="gallery-placeholder">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="10" width="40" height="28" rx="4" stroke="#7B1FA2" stroke-width="2"/>
-          <circle cx="16" cy="20" r="4" stroke="#7B1FA2" stroke-width="2"/>
-          <path d="M4 34l10-8 8 6 8-10 14 12" stroke="#7B1FA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <strong>Soap Making Workshop</strong>
-      </div>
-      <div class="gallery-caption">Soap Making Session</div>
+  <!-- SLIDESHOW -->
+  <div style="max-width:1100px; margin: 0 auto; position: relative;">
+
+    <div id="boldher-slideshow" style="position:relative; border-radius:20px; overflow:hidden; background:#1A1020; aspect-ratio:16/9;">
+      <div id="sl-counter" style="position:absolute;top:1rem;right:1.2rem;background:rgba(0,0,0,0.5);color:white;font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:50px;letter-spacing:0.05em;z-index:10;backdrop-filter:blur(8px);">1 / 22</div>
+
+      <button id="sl-prev" aria-label="Previous" style="position:absolute;top:50%;left:1rem;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(6px);transition:background 0.2s;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+      </button>
+      <button id="sl-next" aria-label="Next" style="position:absolute;top:50%;right:1rem;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(6px);transition:background 0.2s;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+      </button>
+
+      <div id="sl-slides"></div>
     </div>
 
-    <div class="gallery-item">
-      <img src="showing2.jpeg" alt="Skills training session">
-      <div class="gallery-placeholder">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="10" width="40" height="28" rx="4" stroke="#F07E6E" stroke-width="2"/>
-          <circle cx="16" cy="20" r="4" stroke="#F07E6E" stroke-width="2"/>
-          <path d="M4 34l10-8 8 6 8-10 14 12" stroke="#F07E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <strong>Skills Training</strong>
-      </div>
-      <div class="gallery-caption">Income-generating skills training</div>
-    </div>
+    <!-- DOTS -->
+    <div id="sl-dots" style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:1.2rem;"></div>
 
-    <div class="gallery-item">
-      <img src="talking1.jpeg" alt="Leadership session"> 
-      <div class="gallery-placeholder">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="10" width="40" height="28" rx="4" stroke="#E8527B" stroke-width="2"/>
-          <circle cx="16" cy="20" r="4" stroke="#E8527B" stroke-width="2"/>
-          <path d="M4 34l10-8 8 6 8-10 14 12" stroke="#E8527B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <strong>Leadership Academy</strong>
-      </div>
-      <div class="gallery-caption">Youth leadership development</div>
-    </div>
-
-    <div class="gallery-item">
-    <img src="training2.jpeg" alt="Girl's engagement">
-      <div class="gallery-placeholder">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="10" width="40" height="28" rx="4" stroke="#7B1FA2" stroke-width="2"/>
-          <circle cx="16" cy="20" r="4" stroke="#7B1FA2" stroke-width="2"/>
-          <path d="M4 34l10-8 8 6 8-10 14 12" stroke="#7B1FA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <strong>Girl's engagement</strong>
-      </div>
-      <div class="gallery-caption">Girl's engagement &amp; support</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="elaborating1.jpeg" alt="More of the Teaching"> 
-      <div class="gallery-placeholder">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="10" width="40" height="28" rx="4" stroke="#F07E6E" stroke-width="2"/>
-          <circle cx="16" cy="20" r="4" stroke="#F07E6E" stroke-width="2"/>
-          <path d="M4 34l10-8 8 6 8-10 14 12" stroke="#F07E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <strong>More of the Teaching</strong>
-      </div>
-      <div class="gallery-caption">Reusable sanitary pad Teaching </div>
-    </div>
-
+    <!-- THUMBNAIL STRIP -->
+    <div id="sl-thumbs" style="display:flex;gap:8px;overflow-x:auto;margin-top:1rem;padding-bottom:0.5rem;scrollbar-width:thin;scrollbar-color:#E8527B transparent;"></div>
   </div>
 </section>
+
+<style>
+  .sl-slide { position:absolute;inset:0;opacity:0;transition:opacity 0.6s ease;display:flex;align-items:center;justify-content:center; }
+  .sl-slide.sl-active { opacity:1; }
+  .sl-slide img { width:100%;height:100%;object-fit:cover;display:block; }
+  .sl-caption { position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(26,16,32,0.92) 0%,transparent 100%);padding:3rem 1.8rem 1.5rem;color:white; }
+  .sl-caption-title { font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,3vw,1.4rem);font-weight:400;margin-bottom:0.3rem; }
+  .sl-caption-sub { font-size:0.78rem;color:rgba(255,255,255,0.6);letter-spacing:0.08em; }
+  .sl-dot { width:8px;height:8px;border-radius:50%;background:rgba(123,31,162,0.25);border:none;cursor:pointer;padding:0;transition:background 0.2s,transform 0.2s; }
+  .sl-dot.sl-dot-active { background:#E8527B;transform:scale(1.35); }
+  .sl-thumb { width:70px;height:52px;flex-shrink:0;border-radius:8px;overflow:hidden;cursor:pointer;opacity:0.45;transition:opacity 0.2s,transform 0.2s;border:2px solid transparent; }
+  .sl-thumb.sl-thumb-active { opacity:1;border-color:#E8527B;transform:scale(1.05); }
+  .sl-thumb img { width:100%;height:100%;object-fit:cover;display:block; }
+  #sl-prev:hover,#sl-next:hover { background:rgba(232,82,123,0.5)!important; }
+</style>
+
+<script>
+(function(){
+  var slides = [
+    { src:'comunity1.jpeg', title:'Community Event', sub:'BoldHer in the community' },
+    { src:'soapmaking.jpeg', title:'Soap Making Workshop', sub:'Income-generating skills training' },
+    { src:'showing2.jpeg', title:'Skills Training', sub:'Empowering through practical skills' },
+    { src:'talking1.jpeg', title:'Leadership Session', sub:'Youth leadership development' },
+    { src:'training2.jpeg', title:"Girl's Engagement", sub:"Girl's engagement and support" },
+    { src:'elaborating1.jpeg', title:'Reusable Pad Teaching', sub:'Menstrual health education' },
+    { src:'23.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'24.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'25.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'26.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'27.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'28.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'29.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'30.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'31.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'32.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'33.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'34.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'35.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'36.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'37.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'38.jpg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+  ];
+
+  var cur = 0, timer = null;
+  var sc = document.getElementById('sl-slides');
+  var dotsEl = document.getElementById('sl-dots');
+  var thumbsEl = document.getElementById('sl-thumbs');
+  var counterEl = document.getElementById('sl-counter');
+
+  slides.forEach(function(s, i){
+    var div = document.createElement('div');
+    div.className = 'sl-slide' + (i===0?' sl-active':'');
+    div.innerHTML = '<img src="'+s.src+'" alt="'+s.title+'"><div class="sl-caption"><div class="sl-caption-title">'+s.title+'</div><div class="sl-caption-sub">'+s.sub+'</div></div>';
+    sc.appendChild(div);
+
+    var dot = document.createElement('button');
+    dot.className = 'sl-dot'+(i===0?' sl-dot-active':'');
+    dot.setAttribute('aria-label','Slide '+(i+1));
+    dot.addEventListener('click', function(){ goTo(i); });
+    dotsEl.appendChild(dot);
+
+    var th = document.createElement('div');
+    th.className = 'sl-thumb'+(i===0?' sl-thumb-active':'');
+    th.innerHTML = '<img src="'+s.src+'" alt="'+s.title+'">';
+    th.addEventListener('click', function(){ goTo(i); });
+    thumbsEl.appendChild(th);
+  });
+
+  function goTo(n){
+    var allS = sc.querySelectorAll('.sl-slide');
+    var allD = dotsEl.querySelectorAll('.sl-dot');
+    var allT = thumbsEl.querySelectorAll('.sl-thumb');
+    allS[cur].classList.remove('sl-active');
+    allD[cur].classList.remove('sl-dot-active');
+    allT[cur].classList.remove('sl-thumb-active');
+    cur = (n + slides.length) % slides.length;
+    allS[cur].classList.add('sl-active');
+    allD[cur].classList.add('sl-dot-active');
+    allT[cur].classList.add('sl-thumb-active');
+    counterEl.textContent = (cur+1)+' / '+slides.length;
+    allT[cur].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+  }
+
+  function resetAuto(){ clearInterval(timer); timer = setInterval(function(){ goTo(cur+1); }, 5000); }
+
+  document.getElementById('sl-prev').addEventListener('click', function(){ goTo(cur-1); resetAuto(); });
+  document.getElementById('sl-next').addEventListener('click', function(){ goTo(cur+1); resetAuto(); });
+  resetAuto();
+
+  var startX = 0;
+  var sw = document.getElementById('boldher-slideshow');
+  sw.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  sw.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx) > 40){ dx < 0 ? goTo(cur+1) : goTo(cur-1); resetAuto(); }
+  });
+})();
+</script>
 
 <!-- OBJECTIVES -->
 <section class="objectives" id="objectives">
@@ -1008,7 +1048,7 @@
       </div>
       <div class="team-info">
         <h4>Kalyesubula Raymond</h4>
-        <p class="role">Founder</p>
+        <p class="role">Chairperson(Founder)</p>
       </div>
     </div>
 
@@ -1018,7 +1058,7 @@
       </div>
       <div class="team-info">
         <h4>Nakasi Lilian</h4>
-        <p class="role">Co-founder</p>
+        <p class="role">Vice Chairperson</p>
       </div>
     </div>
 
@@ -1028,7 +1068,7 @@
       </div>
       <div class="team-info">
         <h4>Nabirye Deborah</h4>
-        <p class="role">Co-founder</p>
+        <p class="role">Public Relations Officer</p>
       </div>
     </div>
 
@@ -1038,7 +1078,7 @@
       </div>
       <div class="team-info">
         <h4>Komukyeya Thelma</h4>
-        <p class="role">Co-founder</p>
+        <p class="role">Treasurer</p>
       </div>
     </div>
 
@@ -1048,7 +1088,7 @@
       </div>
       <div class="team-info">
         <h4>Ssempala Harrison</h4>
-        <p class="role">Co-founder</p>
+        <p class="role">General Secretary</p>
       </div>
     </div>
 
@@ -1058,7 +1098,7 @@
       </div>
       <div class="team-info">
         <h4>Nsereko Hassan</h4>
-        <p class="role">Co-founder</p>
+        <p class="role">Programmes Manager</p>
       </div>
     </div>
 
