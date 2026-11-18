@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>BoldHer Foundation Uganda — Empower · Educate · Inspire</title>
+<title>BoldHer Foundation Uganda | Empower · Educate · Inspire</title>
+<meta name="description" content="BoldHer Foundation Uganda empowers girls and youth through education, menstrual health, leadership and income generating skills. Pad a girl and keep her in school.">
+<meta name="theme-color" content="#7B1FA2">
+
+<!-- Link preview when shared on WhatsApp, Facebook, etc. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="BoldHer Foundation Uganda | Pad a Girl, Keep Her in School">
+<meta property="og:description" content="Empowering girls and youth through education, menstrual health, leadership and skills across Uganda.">
+<meta property="og:image" content="https://samantha7404.github.io/Bold-Her-Foundation-Uganda/25.jpeg">
+<meta property="og:url" content="https://samantha7404.github.io/Bold-Her-Foundation-Uganda/">
+
+<link rel="icon" href="logo.jpeg">
+<link rel="preload" as="image" href="25.jpeg">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -29,6 +41,8 @@
     overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
   }
+  /* Stops headings hiding under the fixed navbar when a menu link is clicked */
+  [id] { scroll-margin-top: 80px; }
 
   /* ======================== NAV ======================== */
   nav {
@@ -40,6 +54,7 @@
     border-bottom: 1px solid rgba(123,31,162,0.1);
     transition: all 0.3s;
   }
+  nav.scrolled { box-shadow: 0 4px 24px rgba(123,31,162,0.12); }
   .nav-brand {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem; font-weight: 600;
@@ -47,7 +62,7 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     text-decoration: none;
   }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
   .nav-links a {
     font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
     text-transform: uppercase; color: var(--mid);
@@ -104,17 +119,12 @@
     position: relative; display: flex; align-items: center;
     overflow: hidden; padding: 8rem 4rem 6rem;
   }
+  /* Photo with a dark purple fade on the left so the white text stays readable */
   .hero-bg {
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse 70% 80% at 70% 50%, rgba(123,31,162,0.35) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 60% at 85% 20%, rgba(232,82,123,0.25) 0%, transparent 60%),
-                radial-gradient(ellipse 40% 40% at 20% 80%, rgba(240,126,110,0.15) 0%, transparent 60%);
-  }
-  .hero-dots {
-    position: absolute; top: 15%; right: 20%;
-    width: 300px; height: 300px;
-    background-image: radial-gradient(circle, rgba(232,82,123,0.4) 1.5px, transparent 1.5px);
-    background-size: 24px 24px; opacity: 0.5;
+    background:
+      linear-gradient(90deg, rgba(26,16,32,0.92) 0%, rgba(26,16,32,0.72) 45%, rgba(26,16,32,0.25) 100%),
+      url('25.jpeg') center 30% / cover no-repeat;
   }
   .hero-content { position: relative; z-index: 2; max-width: 680px; }
   .hero-tag {
@@ -138,7 +148,7 @@
   }
   .hero p {
     font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 300; line-height: 1.7;
-    color: rgba(255,255,255,0.72); max-width: 520px; margin-bottom: 2.5rem;
+    color: rgba(255,255,255,0.82); max-width: 520px; margin-bottom: 2.5rem;
     animation: fadeUp 0.8s 0.3s ease both;
   }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.8s 0.45s ease both; }
@@ -151,7 +161,7 @@
   }
   .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
   .btn-outline {
-    border: 1px solid rgba(255,255,255,0.3); color: white;
+    border: 1px solid rgba(255,255,255,0.4); color: white;
     padding: 0.9rem 2.2rem; border-radius: 50px;
     font-size: 0.9rem; font-weight: 400; text-decoration: none;
     transition: background 0.2s, transform 0.2s; display: inline-block;
@@ -161,7 +171,7 @@
   .hero-scroll {
     position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    color: rgba(255,255,255,0.4); font-size: 0.7rem; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.5); font-size: 0.7rem; letter-spacing: 0.1em;
     text-transform: uppercase; animation: bounce 2s infinite;
   }
   .hero-scroll::after {
@@ -233,44 +243,21 @@
   }
   .about-badge span { font-size: clamp(0.65rem, 1.5vw, 0.75rem); color: var(--muted); letter-spacing: 0.08em; }
 
+  /* ======================== PHOTO STRIP ======================== */
+  .photo-strip { padding: 0; background: white; }
+  .strip-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    height: clamp(140px, 22vw, 280px); overflow: hidden;
+  }
+  .strip-grid img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.4s;
+  }
+  .strip-grid img:hover { transform: scale(1.06); }
+
   /* ======================== GALLERY ======================== */
   .gallery { background: white; }
   .gallery-intro { max-width: 600px; margin-bottom: 2.5rem; font-size: clamp(0.9rem, 2vw, 1rem); color: var(--muted); line-height: 1.8; }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1rem; max-width: 1200px; margin: 0 auto;
-  }
-  .gallery-item {
-    position: relative; border-radius: 16px; overflow: hidden;
-    aspect-ratio: 4/3; background: var(--petal);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 0.8rem;
-    border: 2px dashed rgba(232,82,123,0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-  }
-  .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(123,31,162,0.15); }
-  .gallery-item img {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; border-radius: 14px;
-  }
-  .gallery-placeholder {
-    display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
-    padding: 2rem; text-align: center;
-  }
-  .gallery-placeholder svg { width: 48px; height: 48px; opacity: 0.4; }
-  .gallery-placeholder p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
-  .gallery-placeholder strong { display: block; font-size: 0.9rem; color: var(--plum); margin-bottom: 0.3rem; }
-  .gallery-item.large { grid-column: span 2; aspect-ratio: 16/7; }
-  .gallery-caption {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(to top, rgba(26,16,32,0.9) 0%, transparent 100%);
-    padding: 1.5rem 1.2rem 1rem; color: white;
-    font-size: 0.85rem; font-weight: 500;
-    opacity: 0; transition: opacity 0.3s; border-radius: 0 0 14px 14px;
-  }
-  .gallery-item:hover .gallery-caption { opacity: 1; }
 
   /* ======================== OBJECTIVES ======================== */
   .objectives { background: var(--petal); }
@@ -347,15 +334,22 @@
   }
   .program-card {
     background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px; padding: clamp(1.5rem, 3vw, 2.5rem);
+    border-radius: 20px; padding: 0;
     transition: background 0.3s, transform 0.3s; position: relative; overflow: hidden;
   }
   .program-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 2;
     background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
   }
   .program-card:hover::before { transform: scaleX(1); }
   .program-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
+  .program-img { aspect-ratio: 16/10; overflow: hidden; }
+  .program-img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.5s;
+  }
+  .program-card:hover .program-img img { transform: scale(1.06); }
+  .program-body { padding: clamp(1.2rem, 3vw, 2rem); }
   .program-card h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 600; color: white; margin-bottom: 0.8rem;
@@ -367,6 +361,33 @@
     padding: 0.3rem 0.9rem; border-radius: 50px;
     background: rgba(232,82,123,0.2); color: var(--rose); margin-bottom: 1.2rem;
   }
+
+  /* ======================== TESTIMONIALS (hidden until real quotes exist) ======================== */
+  .testimonials { background: var(--petal); }
+  .testi-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1.2rem, 3vw, 2rem); margin-top: 2rem;
+  }
+  .testi-card {
+    background: white; border-radius: 16px; padding: clamp(1.5rem, 3vw, 2rem);
+    box-shadow: 0 10px 30px rgba(123,31,162,0.08);
+    display: flex; flex-direction: column; gap: 1.2rem;
+  }
+  .testi-quote-mark {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--grad); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 2rem; line-height: 1;
+    padding-top: 0.4rem;
+  }
+  .testi-text { font-size: 0.95rem; line-height: 1.8; color: var(--muted); font-style: italic; }
+  .testi-person { display: flex; align-items: center; gap: 0.8rem; margin-top: auto; }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+    background: var(--blush); flex-shrink: 0;
+  }
+  .testi-person strong { display: block; font-size: 0.9rem; color: var(--plum); }
+  .testi-person span { font-size: 0.78rem; color: var(--muted); }
 
   /* ======================== TEAM ======================== */
   .team { background: white; }
@@ -388,17 +409,6 @@
     position: relative; overflow: hidden;
   }
   .team-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .team-photo-placeholder {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 0.4rem; width: 100%; height: 100%; padding: 1.5rem;
-  }
-  .team-avatar {
-    width: 64px; height: 64px; border-radius: 50%;
-    background: var(--grad); display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem; font-weight: 600; color: white;
-  }
-  .team-photo-hint { font-size: 0.7rem; color: var(--muted); text-align: center; margin-top: 0.3rem; }
   .team-info { padding: 1rem; }
   .team-card h4 {
     font-family: 'Cormorant Garamond', serif;
@@ -406,7 +416,6 @@
   }
   .team-card .role { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
   .team-card.founder-highlight { border-color: rgba(123,31,162,0.25); }
-  .team-card.founder-highlight .team-avatar { background: var(--grad); box-shadow: 0 4px 20px rgba(123,31,162,0.3); }
 
   /* ======================== DONATE ======================== */
   .donate { background: var(--dark); padding: clamp(3rem, 6vw, 7rem) clamp(1.5rem, 4vw, 4rem); }
@@ -545,15 +554,55 @@
   }
   .contact-card-icon svg { width: 22px; height: 22px; fill: var(--rose); }
   .contact-card h4 { font-size: clamp(0.7rem, 1.5vw, 0.8rem); letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; }
-  .contact-card p { font-size: clamp(0.85rem, 1.8vw, 0.95rem); color: white; word-break: break-all; }
+  .contact-card p { font-size: clamp(0.85rem, 1.8vw, 0.95rem); color: white; word-break: break-all; margin-bottom: 0; }
   .contact-card a { color: var(--rose); text-decoration: none; }
+
+  /* ======================== PAD A GIRL BANNER ======================== */
+  .pad-banner { background: var(--grad); }
+  .pad-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .pad-text { max-width: 620px; }
+  .pad-tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase; color: white;
+    border: 1px solid rgba(255,255,255,0.5); padding: 0.35rem 1rem;
+    border-radius: 50px; margin-bottom: 1rem;
+  }
+  .pad-text h2 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 400;
+    font-size: clamp(1.8rem, 5vw, 3rem); line-height: 1.15; color: white; margin-bottom: 0.8rem;
+  }
+  .pad-text p { color: rgba(255,255,255,0.88); line-height: 1.7; font-size: clamp(0.9rem, 2vw, 1rem); }
+  .pad-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+  .btn-white {
+    background: white; color: var(--plum); font-weight: 500;
+    padding: 0.95rem 2.2rem; border-radius: 50px; text-decoration: none;
+    font-size: 0.95rem; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+  .pad-note { color: rgba(255,255,255,0.88); font-size: 0.82rem; }
 
   /* ======================== FOOTER ======================== */
   footer {
+    position: relative; overflow: hidden;
     background: #0E0815;
     padding: clamp(2rem, 4vw, 5rem) clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 3vw, 3rem);
     border-top: 1px solid rgba(255,255,255,0.05);
   }
+  /* Logo silhouette: grayscale + invert turns a white background black,
+     and "screen" blending makes black disappear, leaving a soft ghost of the logo */
+  .footer-watermark {
+    position: absolute; right: -40px; bottom: -40px;
+    width: clamp(240px, 38vw, 460px);
+    filter: grayscale(1) invert(1);
+    mix-blend-mode: screen;
+    opacity: 0.12;
+    pointer-events: none; user-select: none;
+  }
+  .footer-top, .footer-bottom { position: relative; z-index: 1; }
   .footer-top {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: clamp(2rem, 4vw, 4rem); margin-bottom: 3rem;
@@ -581,7 +630,7 @@
   }
   .footer-col ul { list-style: none; }
   .footer-col ul li { margin-bottom: 0.7rem; }
-  .footer-col ul li a { font-size: clamp(0.8rem, 1.8vw, 0.88rem); color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a { font-size: clamp(0.8rem, 1.8vw, 0.88rem); color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; word-break: break-word; }
   .footer-col ul li a:hover { color: var(--rose); }
   .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.06); padding-top: 2rem;
@@ -601,20 +650,6 @@
     50% { transform: translateX(-50%) translateY(-8px); }
   }
 
-  /* SPARKLES */
-  .sparkles {
-    position: absolute; right: 5%; top: 20%;
-    display: flex; flex-direction: column; gap: 1.5rem;
-    animation: fadeUp 1s 0.6s ease both;
-  }
-  .spark {
-    width: 10px; height: 10px; background: var(--rose);
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  }
-  .spark:nth-child(2) { background: #B07FD4; width: 14px; height: 14px; margin-left: 40px; }
-  .spark:nth-child(3) { background: var(--coral); width: 8px; height: 8px; margin-left: 20px; }
-  .spark:nth-child(4) { background: #F0C060; width: 12px; height: 12px; margin-left: 60px; }
-
   /* ======================== RESPONSIVE ======================== */
   @media (max-width: 1024px) {
     nav { padding: 1rem 2.5rem; }
@@ -625,8 +660,6 @@
     .vision { grid-template-columns: 1fr; min-height: auto; }
     .vision-text { padding: 3.5rem 2.5rem; }
     .vision-image { min-height: 350px; }
-    .sparkles { display: none; }
-    .gallery-item.large { grid-column: span 1; aspect-ratio: 4/3; }
   }
 
   @media (max-width: 767px) {
@@ -639,9 +672,15 @@
     .about-card-main { border-radius: 2px 50px 2px 50px; }
     .about-badge { position: relative; bottom: auto; right: auto; margin-top: 1.5rem; }
     .hero-scroll { display: none; }
-    .hero-dots { display: none; }
-    .sparkles { display: none; }
     .donate-detail { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    /* On phones the text spans the full width, so darken the whole photo evenly */
+    .hero-bg {
+      background:
+        linear-gradient(rgba(26,16,32,0.78), rgba(26,16,32,0.78)),
+        url('25.jpeg') center / cover no-repeat;
+    }
+    .strip-grid { grid-template-columns: repeat(3, 1fr); height: auto; }
+    .strip-grid img { aspect-ratio: 1; }
   }
 
   @media (max-width: 479px) {
@@ -649,21 +688,24 @@
     nav { padding: 0.8rem 1rem; }
     .nav-brand { font-size: 0.95rem; }
     section, .contact, .vision, .donate { padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 2vw, 1.5rem) !important; }
+    .photo-strip { padding: 0 !important; }
     .hero { padding: clamp(3.5rem, 5vw, 4rem) 1rem clamp(1.5rem, 3vw, 2rem) !important; }
     .hero h1 { line-height: 1.15; word-break: break-word; }
     .hero-actions { gap: 0.5rem; }
-    .btn-primary, .btn-outline { width: 100%; padding: 0.65rem 1rem; font-size: 0.8rem; }
+    .btn-primary, .btn-outline { width: 100%; padding: 0.65rem 1rem; font-size: 0.8rem; text-align: center; }
+    .btn-white { width: 100%; text-align: center; }
+    .pad-actions { width: 100%; }
     .about-visual { height: 200px; }
     .about-badge { padding: 0.9rem 1.2rem; }
     .pillars-grid, .objectives-grid, .values-grid, .programs-grid,
     .team-grid, .contact-cards, .donate-grid { grid-template-columns: 1fr !important; }
-    .pillar-card, .objective-card, .value-card, .program-card,
+    .pillar-card, .objective-card, .value-card,
     .team-card, .contact-card, .donate-card { padding: 1rem !important; }
+    .team-card { padding: 0 !important; }
     .vision-quote { padding: 1.5rem !important; }
     .values-list li { font-size: 0.9rem; padding: 0.5rem 0; }
     .footer-top { gap: 1.5rem !important; }
     .footer-bottom { flex-direction: column; text-align: center; }
-    .gallery-item { aspect-ratio: 4/3; }
     .toast { left: 1rem; right: 1rem; bottom: 1rem; text-align: center; }
   }
 </style>
@@ -698,48 +740,41 @@
   <a href="#pillars" onclick="closeMobile()">Our Work</a>
   <a href="#programs" onclick="closeMobile()">Programs</a>
   <a href="#team" onclick="closeMobile()">Team</a>
-  <a href="#donate" onclick="closeMobile()" class="mob-cta"> Donate Now</a>
+  <a href="#donate" onclick="closeMobile()" class="mob-cta">Donate Now</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-dots"></div>
-  <div class="sparkles">
-    <div class="spark"></div>
-    <div class="spark"></div>
-    <div class="spark"></div>
-    <div class="spark"></div>
-  </div>
   <div class="hero-content">
     <span class="hero-tag">BoldHer Foundation Uganda</span>
     <h1>She is <em>bold,<br>she is</em> unstoppable.</h1>
     <p>Empowering girls and youth through education, menstrual health, leadership, and income-generating skills for sustainable community transformation across Uganda and Africa.</p>
     <div class="hero-actions">
-      <a href="#about" class="btn-primary">Discover Our Mission</a>
-      <a href="#donate" class="btn-outline">Support Our Cause</a>
+      <a href="#donate" class="btn-primary">Donate Now</a>
+      <a href="#about" class="btn-outline">Discover Our Mission</a>
     </div>
   </div>
   <div class="hero-scroll">Scroll</div>
 </section>
 
-<!-- STATS -->
+<!-- STATS (numbers count up when scrolled into view) -->
 <div class="stats-strip">
   <div>
-    <div class="stat-num">500+</div>
+    <div class="stat-num"><span class="count" data-target="500">0</span>+</div>
     <div class="stat-label">Girls &amp; Youth Served</div>
   </div>
   <div>
-    <div class="stat-num">Mar 2025</div>
-    <div class="stat-label">Founded</div>
+    <div class="stat-num"><span class="count" data-target="1000">0</span>+</div>
+    <div class="stat-label">People Reached in Schools</div>
   </div>
   <div>
-    <div class="stat-num">Uganda</div>
-    <div class="stat-label">Communities Reached</div>
+    <div class="stat-num"><span class="count" data-target="10">0</span>+</div>
+    <div class="stat-label">Student &amp; Community Volunteers</div>
   </div>
   <div>
-    <div class="stat-num">∞</div>
-    <div class="stat-label">Futures Changed</div>
+    <div class="stat-num">2025</div>
+    <div class="stat-label">Year Founded</div>
   </div>
 </div>
 
@@ -750,7 +785,7 @@
       <span class="section-tag">Our Story</span>
       <h2 class="section-title">A movement born from <em>purpose</em></h2>
       <p>BoldHer Foundation Uganda is a non-profit organisation dedicated to the advancement of girls and youth across Uganda. We believe every young person deserves the tools, knowledge and confidence to take control of their future.</p>
-      <p>Founded on March 3rd, 2025, by a dedicated team of social change makers, we work at the intersection of menstrual health awareness, education, leadership development, and economic empowerment — creating pathways for sustainable transformation.</p>
+      <p>Founded on March 3rd, 2025, by a dedicated team of social change makers, we work at the intersection of menstrual health awareness, education, leadership development, and economic empowerment, creating pathways for sustainable transformation.</p>
       <p>We are more than a foundation. We are a movement. A sisterhood. A promise that no girl or young person stands alone on their journey to greatness.</p>
       <a href="#objectives" class="btn-primary" style="margin-top:1rem;">What We Do</a>
     </div>
@@ -773,6 +808,18 @@
   </div>
 </section>
 
+<!-- PHOTO STRIP -->
+<section class="photo-strip" aria-label="Our work in pictures">
+  <div class="strip-grid">
+    <img loading="lazy" src="soapmaking.jpeg" alt="Soap making workshop">
+    <img loading="lazy" src="elaborating1.jpeg" alt="Reusable pad teaching">
+    <img loading="lazy" src="talking1.jpeg" alt="Leadership session">
+    <img loading="lazy" src="comunity1.jpeg" alt="Community event">
+    <img loading="lazy" src="showing2.jpeg" alt="Skills training">
+    <img loading="lazy" src="training2.jpeg" alt="Girls engagement">
+  </div>
+</section>
+
 <!-- GALLERY -->
 <section class="gallery" id="gallery">
   <div style="max-width:1200px; margin: 0 auto; margin-bottom: 2.5rem;">
@@ -785,7 +832,7 @@
   <div style="max-width:1100px; margin: 0 auto; position: relative;">
 
     <div id="boldher-slideshow" style="position:relative; border-radius:20px; overflow:hidden; background:#1A1020; aspect-ratio:16/9;">
-      <div id="sl-counter" style="position:absolute;top:1rem;right:1.2rem;background:rgba(0,0,0,0.5);color:white;font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:50px;letter-spacing:0.05em;z-index:10;backdrop-filter:blur(8px);">1 / 22</div>
+      <div id="sl-counter" style="position:absolute;top:1rem;right:1.2rem;background:rgba(0,0,0,0.5);color:white;font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:50px;letter-spacing:0.05em;z-index:10;backdrop-filter:blur(8px);">1 / 23</div>
 
       <button id="sl-prev" aria-label="Previous" style="position:absolute;top:50%;left:1rem;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(6px);transition:background 0.2s;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
@@ -825,6 +872,7 @@
   var slides = [
     { src:'comunity1.jpeg', title:'Community Event', sub:'BoldHer in the community' },
     { src:'soapmaking.jpeg', title:'Soap Making Workshop', sub:'Income-generating skills training' },
+    { src:'showing1.jpeg', title:'Skills Training', sub:'Hands on practical learning' },
     { src:'showing2.jpeg', title:'Skills Training', sub:'Empowering through practical skills' },
     { src:'talking1.jpeg', title:'Leadership Session', sub:'Youth leadership development' },
     { src:'training2.jpeg', title:"Girl's Engagement", sub:"Girl's engagement and support" },
@@ -844,7 +892,7 @@
     { src:'35.jpeg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
     { src:'36.jpeg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
     { src:'37.jpeg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
-    { src:'38.jpeg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' },
+    { src:'38.jpeg', title:'Our Work in Action', sub:'BoldHer Foundation Uganda' }
   ];
 
   var cur = 0, timer = null;
@@ -856,21 +904,22 @@
   slides.forEach(function(s, i){
     var div = document.createElement('div');
     div.className = 'sl-slide' + (i===0?' sl-active':'');
-    div.innerHTML = '<img src="'+s.src+'" alt="'+s.title+'"><div class="sl-caption"><div class="sl-caption-title">'+s.title+'</div><div class="sl-caption-sub">'+s.sub+'</div></div>';
+    div.innerHTML = '<img loading="lazy" src="'+s.src+'" alt="'+s.title+'"><div class="sl-caption"><div class="sl-caption-title">'+s.title+'</div><div class="sl-caption-sub">'+s.sub+'</div></div>';
     sc.appendChild(div);
 
     var dot = document.createElement('button');
     dot.className = 'sl-dot'+(i===0?' sl-dot-active':'');
     dot.setAttribute('aria-label','Slide '+(i+1));
-    dot.addEventListener('click', function(){ goTo(i); });
+    dot.addEventListener('click', function(){ goTo(i); resetAuto(); });
     dotsEl.appendChild(dot);
 
     var th = document.createElement('div');
     th.className = 'sl-thumb'+(i===0?' sl-thumb-active':'');
-    th.innerHTML = '<img src="'+s.src+'" alt="'+s.title+'">';
-    th.addEventListener('click', function(){ goTo(i); });
+    th.innerHTML = '<img loading="lazy" src="'+s.src+'" alt="'+s.title+'">';
+    th.addEventListener('click', function(){ goTo(i); resetAuto(); });
     thumbsEl.appendChild(th);
   });
+  counterEl.textContent = '1 / ' + slides.length;
 
   function goTo(n){
     var allS = sc.querySelectorAll('.sl-slide');
@@ -884,7 +933,8 @@
     allD[cur].classList.add('sl-dot-active');
     allT[cur].classList.add('sl-thumb-active');
     counterEl.textContent = (cur+1)+' / '+slides.length;
-    allT[cur].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+    /* scroll only the thumbnail strip sideways, never the whole page */
+    thumbsEl.scrollTo({ left: allT[cur].offsetLeft - thumbsEl.clientWidth/2 + allT[cur].clientWidth/2, behavior:'smooth' });
   }
 
   function resetAuto(){ clearInterval(timer); timer = setInterval(function(){ goTo(cur+1); }, 5000); }
@@ -954,7 +1004,7 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
       </div>
       <h3>Educate</h3>
-      <p>Education is the most powerful weapon for change. We provide quality learning, vocational training, digital literacy and scholarships — breaking historical barriers.</p>
+      <p>Education is the most powerful weapon for change. We provide quality learning, vocational training, digital literacy and scholarships, breaking historical barriers.</p>
     </div>
     <div class="pillar-card">
       <div class="pillar-num">03</div>
@@ -1008,26 +1058,93 @@
     <h2 class="section-title">Initiatives driving <em>real change</em></h2>
     <p>Our programs are designed with girls and youth at the centre, meeting them where they are and walking with them toward where they want to be.</p>
     <div class="programs-grid">
+
       <div class="program-card">
-        <div class="program-tag">Leadership</div>
-        <h3>Leadership Academy</h3>
-        <p>An intensive mentorship program developing the next generation of bold female leaders in Uganda from community advocates to business entrepreneurs.</p>
+        <div class="program-img"><img loading="lazy" src="talking1.jpeg" alt="Leadership Academy session"></div>
+        <div class="program-body">
+          <div class="program-tag">Leadership</div>
+          <h3>Leadership Academy</h3>
+          <p>An intensive mentorship program developing the next generation of bold female leaders in Uganda from community advocates to business entrepreneurs.</p>
+        </div>
       </div>
+
       <div class="program-card">
-        <div class="program-tag">Education</div>
-        <h3>Back to School Initiative</h3>
-        <p>Scholarships, school supplies and support systems to keep vulnerable girls in school and equip them with the education they deserve.</p>
+        <div class="program-img"><img loading="lazy" src="training2.jpeg" alt="Back to School Initiative"></div>
+        <div class="program-body">
+          <div class="program-tag">Education</div>
+          <h3>Back to School Initiative</h3>
+          <p>Scholarships, school supplies and support systems to keep vulnerable girls in school and equip them with the education they deserve.</p>
+        </div>
       </div>
+
       <div class="program-card">
-        <div class="program-tag">Economic</div>
-        <h3>Entrepreneurship Hub</h3>
-        <p>Supporting youth-led businesses through training, seed funding, market linkages and mentorship building economic independence.</p>
+        <div class="program-img"><img loading="lazy" src="soapmaking.jpeg" alt="Entrepreneurship Hub soap making"></div>
+        <div class="program-body">
+          <div class="program-tag">Economic</div>
+          <h3>Entrepreneurship Hub</h3>
+          <p>Supporting youth-led businesses through training, seed funding, market linkages and mentorship building economic independence.</p>
+        </div>
       </div>
+
       <div class="program-card">
-        <div class="program-tag">Health</div>
-        <h3>Menstrual Health Program</h3>
-        <p>Awareness, hygiene education, and distribution of reusable sanitary pads to ensure girls' health and educational continuity.</p>
+        <div class="program-img"><img loading="lazy" src="elaborating1.jpeg" alt="Menstrual health teaching"></div>
+        <div class="program-body">
+          <div class="program-tag">Health</div>
+          <h3>Menstrual Health Program</h3>
+          <p>Awareness, hygiene education, and distribution of reusable sanitary pads to ensure girls' health and educational continuity.</p>
+        </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS (hidden until real quotes are added) -->
+<!-- HOW TO ACTIVATE: replace the capital letter text in each card, then delete the word "hidden" from the <section> tag -->
+<section class="testimonials" id="stories" hidden>
+  <div style="max-width:1200px; margin:0 auto;">
+    <span class="section-tag">Voices of Change</span>
+    <h2 class="section-title">What people <em>say about us</em></h2>
+    <div class="testi-grid">
+
+      <div class="testi-card">
+        <div class="testi-quote-mark">“</div>
+        <!-- TODO: paste the real quote here, 2 or 3 sentences. Get permission first. -->
+        <p class="testi-text">WRITE THE QUOTE HERE</p>
+        <div class="testi-person">
+          <!-- Optional photo: set src to a file like girl1.jpeg, or delete this img line -->
+          <img src="" alt="" class="testi-avatar">
+          <div>
+            <strong>NAME</strong>
+            <span>ROLE, SCHOOL OR PLACE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote-mark">“</div>
+        <p class="testi-text">WRITE THE QUOTE HERE</p>
+        <div class="testi-person">
+          <img src="" alt="" class="testi-avatar">
+          <div>
+            <strong>NAME</strong>
+            <span>ROLE, SCHOOL OR PLACE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote-mark">“</div>
+        <p class="testi-text">WRITE THE QUOTE HERE</p>
+        <div class="testi-person">
+          <img src="" alt="" class="testi-avatar">
+          <div>
+            <strong>NAME</strong>
+            <span>ROLE, SCHOOL OR PLACE</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1043,17 +1160,17 @@
 
     <div class="team-card founder-highlight">
       <div class="team-photo">
-        <img src="founder.jpeg" alt="Kalyesubula Raymond">
+        <img loading="lazy" src="founder.jpeg" alt="Kalyesubula Raymond">
       </div>
       <div class="team-info">
         <h4>Kalyesubula Raymond</h4>
-        <p class="role">Chairperson(Founder)</p>
+        <p class="role">Chairperson (Founder)</p>
       </div>
     </div>
 
     <div class="team-card">
       <div class="team-photo">
-        <img src="lilian.jpeg" alt="Nakasi Lilian">
+        <img loading="lazy" src="lilian.jpeg" alt="Nakasi Lilian">
       </div>
       <div class="team-info">
         <h4>Nakasi Lilian</h4>
@@ -1063,7 +1180,7 @@
 
     <div class="team-card">
       <div class="team-photo">
-        <img src="deborah.jpeg" alt="Nabirye Deborah">
+        <img loading="lazy" src="deborah.jpeg" alt="Nabirye Deborah">
       </div>
       <div class="team-info">
         <h4>Nabirye Deborah</h4>
@@ -1073,7 +1190,7 @@
 
     <div class="team-card">
       <div class="team-photo">
-        <img src="thelma.jpeg" alt="Komukyeya Thelma Yvonne">
+        <img loading="lazy" src="thelma.jpeg" alt="Komukyeya Thelma Yvonne">
       </div>
       <div class="team-info">
         <h4>Komukyeya Thelma</h4>
@@ -1083,7 +1200,7 @@
 
     <div class="team-card">
       <div class="team-photo">
-        <img src="harrison.jpeg" alt="Ssempala Harrison">
+        <img loading="lazy" src="harrison.jpeg" alt="Ssempala Harrison">
       </div>
       <div class="team-info">
         <h4>Ssempala Harrison</h4>
@@ -1093,7 +1210,7 @@
 
     <div class="team-card">
       <div class="team-photo">
-        <img src="hassan.jpeg" alt="Nsereko Hassan">
+        <img loading="lazy" src="hassan.jpeg" alt="Nsereko Hassan">
       </div>
       <div class="team-info">
         <h4>Nsereko Hassan</h4>
@@ -1108,17 +1225,17 @@
 <section class="donate" id="donate">
   <div class="donate-inner">
     <span class="section-tag">Support Our Cause</span>
-    <h2 class="section-title">Every gift <em>transforms</em> a life</h2>
-    <p class="donate-intro">Your donation directly funds menstrual health kits, school supplies, vocational training, and leadership programs for girls and youth across Uganda. No amount is too small — every contribution makes a real difference.</p>
+    <h2 class="section-title">Pad a girl. Every gift <em>transforms</em> a life</h2>
+    <p class="donate-intro">Your donation directly funds menstrual health kits, school supplies, vocational training, and leadership programs for girls and youth across Uganda. No amount is too small, every contribution makes a real difference.</p>
 
     <!-- SUGGESTED AMOUNTS -->
     <div style="margin-bottom: 2.5rem;">
       <p style="color: rgba(255,255,255,0.5); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem;">What your donation can do</p>
       <div class="donate-amounts">
-        <div class="donate-amount-pill">UGX 10,000 — 1 sanitary pad kit</div>
-        <div class="donate-amount-pill highlight">UGX 50,000 — supports 1 girl for a month</div>
-        <div class="donate-amount-pill">UGX 200,000 — funds a skills training session</div>
-        <div class="donate-amount-pill">UGX 500,000 — full scholarship support</div>
+        <div class="donate-amount-pill highlight">UGX 10,000: 1 sanitary pad kit</div>
+        <div class="donate-amount-pill">UGX 50,000: supports 1 girl for a month</div>
+        <div class="donate-amount-pill">UGX 200,000: funds a skills training session</div>
+        <div class="donate-amount-pill">UGX 500,000: full scholarship support</div>
       </div>
     </div>
 
@@ -1142,10 +1259,9 @@
         <div class="donate-detail">
           <div>
             <div class="donate-detail-label">MTN MoMo Number</div>
-            <!-- TODO: Replace 0770000000 with your real MTN number -->
             <div class="donate-detail-value" id="mtn-number">0781 380 295</div>
           </div>
-          <button class="donate-copy-btn" onclick="copyText('0781 380 295', 'MTN number')">Copy</button>
+          <button class="donate-copy-btn" onclick="copyText('0781380295', 'MTN number')">Copy</button>
         </div>
         <div class="donate-detail">
           <div>
@@ -1174,7 +1290,6 @@
         <div class="donate-detail">
           <div>
             <div class="donate-detail-label">Airtel Money Number</div>
-            <!-- TODO: Replace 0750000000 with your real Airtel number -->
             <div class="donate-detail-value" id="airtel-number">0742253436</div>
           </div>
           <button class="donate-copy-btn" onclick="copyText('0742253436', 'Airtel number')">Copy</button>
@@ -1188,8 +1303,9 @@
         <p class="donate-note"><strong>How to send:</strong> Dial *185# → Send Money → Enter number → Enter amount → Confirm with your PIN. Use reference: <strong>BoldHer Donation</strong></p>
       </div>
 
-      <!-- BANK TRANSFER -->
-      <div class="donate-card">
+      <!-- BANK TRANSFER (hidden until the real account number is added) -->
+      <!-- HOW TO ACTIVATE: put the real number below and in the Copy button, then delete the word "hidden" -->
+      <div class="donate-card" hidden>
         <div class="donate-card-header">
           <div class="donate-icon">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1205,14 +1321,12 @@
         <div class="donate-detail">
           <div>
             <div class="donate-detail-label">Bank Name</div>
-            <!-- TODO: Replace with your real bank name -->
-            <div class="donate-detail-value">STANBIC BANK </div>
+            <div class="donate-detail-value">STANBIC BANK</div>
           </div>
         </div>
         <div class="donate-detail">
           <div>
             <div class="donate-detail-label">Account Number</div>
-            <!-- TODO: Replace with your real account number -->
             <div class="donate-detail-value" id="bank-account">0000 0000 0000</div>
           </div>
           <button class="donate-copy-btn" onclick="copyText('000000000000', 'Account number')">Copy</button>
@@ -1242,17 +1356,17 @@
     <p>We envision an Africa where no girl or young person is held back by circumstance, culture, or lack of opportunity. Where every young person is educated, healthy, skilled, confident, economically independent, and given equal opportunities to achieve their full potential.</p>
     <p>Our commitment is to breaking barriers caused by poverty, menstrual stigma and inequality by empowering girls and youth through practical, life-changing interventions.</p>
     <ul class="values-list">
-      <li>Dignity — every person deserves respect and recognition</li>
-      <li>Boldness — we champion courage and confidence</li>
-      <li>Community — we are stronger together than apart</li>
-      <li>Inclusivity — no one is left behind</li>
-      <li>Integrity — transparent and purpose-driven impact</li>
+      <li>Dignity: every person deserves respect and recognition</li>
+      <li>Boldness: we champion courage and confidence</li>
+      <li>Community: we are stronger together than apart</li>
+      <li>Inclusivity: no one is left behind</li>
+      <li>Integrity: transparent and purpose-driven impact</li>
     </ul>
   </div>
   <div class="vision-image">
     <blockquote class="vision-quote">
       "A woman with a voice is, by definition, a strong woman."
-      <cite>— BoldHer Foundation Uganda</cite>
+      <cite>BoldHer Foundation Uganda</cite>
     </blockquote>
   </div>
 </div>
@@ -1276,7 +1390,7 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
         </div>
         <h4>Phone</h4>
-        <p><a href="tel:+256742253436">+256 (0) 742253436 </a></p>
+        <p><a href="tel:+256742253436">+256 (0) 742253436</a></p>
       </div>
       <div class="contact-card">
         <div class="contact-card-icon">
@@ -1289,18 +1403,34 @@
   </div>
 </section>
 
+<!-- PAD A GIRL BANNER -->
+<section class="pad-banner">
+  <div class="pad-inner">
+    <div class="pad-text">
+      <span class="pad-tag">Pad a Girl</span>
+      <h2>Pad a girl. Keep her in school.</h2>
+      <p>Every girl deserves to learn with dignity and confidence. Your gift of reusable pads helps her stay in class, every day of the month.</p>
+    </div>
+    <div class="pad-actions">
+      <a href="#donate" class="btn-white">Pad a Girl Today</a>
+      <span class="pad-note">UGX 10,000 gives one girl a pad kit</span>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
+  <img src="logo.jpeg" alt="" class="footer-watermark" aria-hidden="true">
   <div class="footer-top">
     <div>
       <div class="footer-brand-name">BoldHer</div>
       <div class="footer-tagline">Foundation Uganda</div>
       <p class="footer-desc">Empowering girls and youth through education, menstrual health, leadership and economic empowerment for sustainable community transformation across Uganda and Africa.</p>
       <div class="footer-social">
-        <a href="https://vt.tiktok.com/ZS9sgS1t8/" target="_blank" class="social-icon" title="Follow us on TikTok">
+        <a href="https://vt.tiktok.com/ZS9sgS1t8/" target="_blank" rel="noopener" class="social-icon" title="Follow us on TikTok" aria-label="TikTok">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.4 2.4 0 0 1-2.4 2.4 2.4 2.4 0 0 1-2.4-2.4 2.4 2.4 0 0 1 2.4-2.4c.34 0 .67.05.98.14V9.58a6 6 0 0 0-.98-.05c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6V9.5c1.25.94 2.78 1.5 4.5 1.5V11a6.8 6.8 0 0 1-4.5-1.31z"/></svg>
         </a>
-        <a href="https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9" target="_blank" class="social-icon" title="Subscribe on YouTube">
+        <a href="https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9" target="_blank" rel="noopener" class="social-icon" title="Subscribe on YouTube" aria-label="YouTube">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
       </div>
@@ -1327,10 +1457,18 @@
     <div class="footer-col">
       <h5>Follow Us</h5>
       <ul>
-        <li><a href="https://vt.tiktok.com/ZS9sgS1t8/" target="_blank">TikTok</a></li>
-        <li><a href="https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9" target="_blank">YouTube</a></li>
-        <li><a href="#contact">Instagram</a></li>
-        <li><a href="#contact">Facebook</a></li>
+        <li><a href="https://vt.tiktok.com/ZS9sgS1t8/" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="https://youtube.com/shorts/0ZiqPrzFl48?si=tni-3UVUHwbrJyE9" target="_blank" rel="noopener">YouTube</a></li>
+        <!-- Add Instagram and Facebook here once the real page links exist -->
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Our Details</h5>
+      <ul>
+        <li><a href="mailto:boldherfoundationuganda@gmail.com">boldherfoundationuganda@gmail.com</a></li>
+        <li><a href="tel:+256742253436">+256 742 253 436</a></li>
+        <li><a href="#contact">Jinja, Uganda</a></li>
+        <li><a href="#about">Founded 3 March 2025</a></li>
       </ul>
     </div>
   </div>
@@ -1352,6 +1490,11 @@
     hamburger.classList.remove('open');
     mobileMenu.classList.remove('open');
   }
+
+  // Navbar shadow after scrolling
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
 
   // Copy to clipboard
   function copyText(text, label) {
@@ -1375,6 +1518,30 @@
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 2500);
   }
+
+  // Animated counters: each number counts up once when it scrolls into view
+  const counters = document.querySelectorAll('.count');
+  const runCounter = (el) => {
+    const target = +el.dataset.target;
+    const duration = 1800;
+    const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString();
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        runCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  counters.forEach(c => counterObserver.observe(c));
 </script>
 </body>
 </html>
